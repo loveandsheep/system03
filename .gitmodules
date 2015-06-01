@@ -1,0 +1,6 @@
+[submodule "addons/ofxKsmrAgileEye"]
+	path = addons/ofxKsmrAgileEye
+	url = https://loveandsheep@github.com/loveandsheep/ofxKsmrAgileEye.git
+[submodule "addons/ofxKsmrStepManager"]
+	path = addons/ofxKsmrStepManager
+	url = https://loveandsheep@github.com/loveandsheep/ofxKsmrStepManager.git

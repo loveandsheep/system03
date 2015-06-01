@@ -11,7 +11,7 @@
 void fontPointer::setup(string path, float _scale, string viewStr)
 {
 
-	font.loadFont(path, 72);
+	font.loadFont(path, 72, true, true, true);
 	scale = _scale;
 	
 	setSentence(viewStr);
@@ -35,7 +35,21 @@ void fontPointer::update()
 
 void fontPointer::drawDebug()
 {
-	font.drawString(currentSentence, 0, 0);
+	
+	ofPushMatrix();
+	ofRotateZ(180);
+	ofRotateY(-135);
+	ofTranslate(-200, -200, 200);
+	ofRotateY(-45);
+	
+	glScaled(scale, scale, 1.0);
+	ofTranslate(-offset);{
+
+		for (int i = 0;i < sentence.size();i++)
+			sentence[i].draw();
+		
+	}ofPopMatrix();
+	
 }
 
 ofVec3f fontPointer::getPoint()

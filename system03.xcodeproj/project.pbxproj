@@ -22,6 +22,9 @@
 		C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */; };
 		C62796511B1C4DE200487606 /* fontPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C627964F1B1C4DE200487606 /* fontPointer.cpp */; };
 		C62796541B1C52AF00487606 /* system03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C62796521B1C52AF00487606 /* system03.cpp */; };
+		C62796701B1C534C00487606 /* ofxKsmrAgileEye.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C62796561B1C534C00487606 /* ofxKsmrAgileEye.cpp */; };
+		C62796741B1C534C00487606 /* ofxKsmrStepManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C627966C1B1C534C00487606 /* ofxKsmrStepManager.cpp */; };
+		C62796751B1C534C00487606 /* virtualSteppingMotor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C627966E1B1C534C00487606 /* virtualSteppingMotor.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
 		E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */; };
@@ -104,6 +107,12 @@
 		C62796501B1C4DE200487606 /* fontPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontPointer.h; sourceTree = "<group>"; };
 		C62796521B1C52AF00487606 /* system03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = system03.cpp; sourceTree = "<group>"; };
 		C62796531B1C52AF00487606 /* system03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = system03.h; sourceTree = "<group>"; };
+		C62796561B1C534C00487606 /* ofxKsmrAgileEye.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxKsmrAgileEye.cpp; sourceTree = "<group>"; };
+		C62796571B1C534C00487606 /* ofxKsmrAgileEye.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxKsmrAgileEye.h; sourceTree = "<group>"; };
+		C627966C1B1C534C00487606 /* ofxKsmrStepManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxKsmrStepManager.cpp; sourceTree = "<group>"; };
+		C627966D1B1C534C00487606 /* ofxKsmrStepManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxKsmrStepManager.h; sourceTree = "<group>"; };
+		C627966E1B1C534C00487606 /* virtualSteppingMotor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = virtualSteppingMotor.cpp; sourceTree = "<group>"; };
+		C627966F1B1C534C00487606 /* virtualSteppingMotor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = virtualSteppingMotor.h; sourceTree = "<group>"; };
 		C6937888E126BADC8777423B /* OscTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscTypes.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h; sourceTree = SOURCE_ROOT; };
 		D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscTypes.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.cpp; sourceTree = SOURCE_ROOT; };
 		DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscMessage.cpp; path = ../../../addons/ofxOsc/src/ofxOscMessage.cpp; sourceTree = SOURCE_ROOT; };
@@ -208,6 +217,8 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				C62796551B1C534C00487606 /* ofxKsmrAgileEye */,
+				C62796581B1C534C00487606 /* ofxKsmrStepManager */,
 				E6053AB7FEC63D5F83825B88 /* ofxOsc */,
 			);
 			name = addons;
@@ -261,6 +272,36 @@
 			name = src;
 			sourceTree = "<group>";
 		};
+		C62796551B1C534C00487606 /* ofxKsmrAgileEye */ = {
+			isa = PBXGroup;
+			children = (
+				C62796561B1C534C00487606 /* ofxKsmrAgileEye.cpp */,
+				C62796571B1C534C00487606 /* ofxKsmrAgileEye.h */,
+			);
+			name = ofxKsmrAgileEye;
+			path = addons/ofxKsmrAgileEye;
+			sourceTree = "<group>";
+		};
+		C62796581B1C534C00487606 /* ofxKsmrStepManager */ = {
+			isa = PBXGroup;
+			children = (
+				C627966B1B1C534C00487606 /* src */,
+			);
+			name = ofxKsmrStepManager;
+			path = addons/ofxKsmrStepManager;
+			sourceTree = "<group>";
+		};
+		C627966B1B1C534C00487606 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C627966C1B1C534C00487606 /* ofxKsmrStepManager.cpp */,
+				C627966D1B1C534C00487606 /* ofxKsmrStepManager.h */,
+				C627966E1B1C534C00487606 /* virtualSteppingMotor.cpp */,
+				C627966F1B1C534C00487606 /* virtualSteppingMotor.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		D27B2221A225CA523C019676 /* src */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,8 +349,8 @@
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				C62796501B1C4DE200487606 /* fontPointer.h */,
 				C627964F1B1C4DE200487606 /* fontPointer.cpp */,
-				C62796521B1C52AF00487606 /* system03.cpp */,
 				C62796531B1C52AF00487606 /* system03.h */,
+				C62796521B1C52AF00487606 /* system03.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -433,6 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62796701B1C534C00487606 /* ofxKsmrAgileEye.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
@@ -443,7 +485,9 @@
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
 				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
+				C62796741B1C534C00487606 /* ofxKsmrStepManager.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
+				C62796751B1C534C00487606 /* virtualSteppingMotor.cpp in Sources */,
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
 				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
 				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,

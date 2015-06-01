@@ -11,6 +11,8 @@ public:
 	void update();
 	void draw();
 
+	ofEasyCam camera;
 	fontPointer fontPt;
 	system03 sys03;
+
 };
