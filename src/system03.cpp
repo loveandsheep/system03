@@ -5,19 +5,27 @@
 
 #include "system03.h"
 
-void system03::init()
+system03::system03()
+{
+	
+}
+
+void system03::init(bool isRPi)
 {
 	eyes.setup();
 	
 	goDefault = true;
 	
-	motor.serial.listDevices();
-	motor.addStepper("arm_0", 200, 0);
-	motor.addStepper("arm_1", 200, 1);
-	motor.addStepper("arm_2", 200, 2);
-	motor.setupEasyFromPreset(KSMR_STEP_SM_42BYG011_25);
-	motor.setParam_maxSpeed(0x75);
-	motor.setMicroSteps(0);
+	if (isRPi)	motor = new ofxKsmrRPiStepManager();
+	else		motor = new ofxKsmrStepManager();
+	
+	motor->serial.listDevices();
+	motor->addStepper("arm_0", 200, 0);
+	motor->addStepper("arm_1", 200, 1);
+	motor->addStepper("arm_2", 200, 2);
+	motor->setupEasyFromPreset(KSMR_STEP_SM_42BYG011_25);
+	motor->setParam_maxSpeed(0x75);
+	motor->setMicroSteps(0);
 	
 }
 
@@ -27,24 +35,30 @@ void system03::update(const ofVec3f target)
 	eyes.update(target);
 	
 	if (goDefault){
-		motor.setStepperAll(true);
+		motor->setStepperAll(true);
 		motor_pos[0] = 0;
 		motor_pos[1] = 0;
 		motor_pos[2] = 0;
 		
-		motor.multi_go_to(motor_pos);
+		motor->multi_go_to(motor_pos);
 	}else{
-		motor.setStepperAll(true);
+		motor->setStepperAll(true);
 		
 		motor_pos[0] = -eyes.arm[0].rootPan / 1.8f * 128;
 		motor_pos[1] = -eyes.arm[2].rootPan / 1.8f * 128;
 		motor_pos[2] = -eyes.arm[1].rootPan / 1.8f * 128;
 		
-		motor.multi_go_to(motor_pos);
+		motor->multi_go_to(motor_pos);
 	}
 }
 
 void system03::view()
 {
 	eyes.draw();
+	if (goDefault) ofDrawBitmapString("set default position", 80, 80);
+}
+
+system03::~system03()
+{
+	delete motor;
 }

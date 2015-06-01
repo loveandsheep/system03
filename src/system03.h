@@ -7,19 +7,21 @@
 #define __agileEyeTest__system03__
 
 #include "ofMain.h"
-#include "ofxKsmrStepManager.h"
+#include "ofxKsmrRPiStepManager.h"
 #include "ofxKsmrAgileEye.h"
 
 class system03{
 	
 public:
+	system03();
+	~system03();
 	
-	void				init();
+	void				init(bool isRPi = true);
 	void				update(const ofVec3f target);
 	void				view();
 	
 	ofxKsmrAgileEye		eyes;
-	ofxKsmrStepManager	motor;
+	ofxKsmrStepManager	*motor;
 	
 	int					motor_pos[3];
 	bool				goDefault;
