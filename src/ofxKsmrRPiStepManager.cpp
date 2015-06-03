@@ -103,7 +103,6 @@ void ofxKsmrRPiStepManager::multi_go_to(int *pos){
 void ofxKsmrRPiStepManager::spi_sendMulti(unsigned char *bytes, int length){
 	
 	if (length % steppers.size() != 0) ofLogError("ksmrRPiStepper", "signal num is not corrent");
-	assert(length % steppers.size() == 0);
 	
 	int numBytes	= steppers.size();
 	int numPacket	= length / steppers.size();
