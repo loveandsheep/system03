@@ -18,7 +18,7 @@ void ofApp::update(){
 	sys03.update(fontPt.getPoint());
 	if (ofGetFrameNum() % 60 == 0) gpio.setPinValue(22, true);
 	if (ofGetFrameNum() % 60 == 30) gpio.setPinValue(22, false);
-	if (ofGetFrameNum() % 60 == 0) printf("Timer cout \n");
+//	if (ofGetFrameNum() % 60 == 0) printf("Timer cout \n");
 }
 
 //--------------------------------------------------------------

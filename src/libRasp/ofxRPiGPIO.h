@@ -30,11 +30,12 @@ public:
 	void setPinValue(int numPin, bool digitalV)
 	{
 		if (digitalV){
-			printf("set high");
+			printf("set high\n");
 			gpio_set(numPin);
 		}
-		else{
-			printf("set low");
+		else
+		{
+			printf("set low\n");
 			gpio_clear(numPin);
 		}
 	}
