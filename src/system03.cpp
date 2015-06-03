@@ -10,14 +10,15 @@ system03::system03()
 	
 }
 
-void system03::init(bool isRPi)
+void system03::init()
 {
 	eyes.setup();
 	
-	goDefault = true;
-	
-	if (isRPi)	motor = new ofxKsmrRPiStepManager();
-	else		motor = new ofxKsmrStepManager();
+#ifdef TARGET_OSX
+	motor = new ofxKsmrStepManager();
+#else
+	motor = new ofxKsmrRPiStepManager();
+#endif
 	
 	motor->serial.listDevices();
 	motor->addStepper("arm_0", 200, 0);
@@ -26,7 +27,8 @@ void system03::init(bool isRPi)
 	motor->setupEasyFromPreset(KSMR_STEP_SM_42BYG011_25);
 	motor->setParam_maxSpeed(0x75);
 	motor->setMicroSteps(0);
-	
+
+	goDefault = true;
 }
 
 void system03::update(const ofVec3f target)

@@ -16,7 +16,7 @@ public:
 	system03();
 	~system03();
 	
-	void				init(bool isRPi = true);
+	void				init();
 	void				update(const ofVec3f target);
 	void				view();
 	

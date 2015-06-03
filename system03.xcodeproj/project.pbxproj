@@ -278,8 +278,8 @@
 		C62796551B1C534C00487606 /* ofxKsmrAgileEye */ = {
 			isa = PBXGroup;
 			children = (
-				C62796561B1C534C00487606 /* ofxKsmrAgileEye.cpp */,
 				C62796571B1C534C00487606 /* ofxKsmrAgileEye.h */,
+				C62796561B1C534C00487606 /* ofxKsmrAgileEye.cpp */,
 			);
 			name = ofxKsmrAgileEye;
 			path = addons/ofxKsmrAgileEye;
@@ -350,10 +350,10 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
-				C62796501B1C4DE200487606 /* fontPointer.h */,
-				C627964F1B1C4DE200487606 /* fontPointer.cpp */,
 				C62796531B1C52AF00487606 /* system03.h */,
 				C62796521B1C52AF00487606 /* system03.cpp */,
+				C62796501B1C4DE200487606 /* fontPointer.h */,
+				C627964F1B1C4DE200487606 /* fontPointer.cpp */,
 				C627967A1B1C5A5500487606 /* ofxKsmrRPiStepManager.h */,
 				C62796791B1C5A5500487606 /* ofxKsmrRPiStepManager.cpp */,
 			);
