@@ -8,7 +8,7 @@ void ofApp::setup(){
 	camera.setDistance(300);
 	
 	gpio.setup();
-	gpio.setPinMode(2, GPIO_OUTPUT);
+	gpio.setPinMode(4, GPIO_OUTPUT);
 }
 
 //--------------------------------------------------------------
@@ -17,8 +17,8 @@ void ofApp::update(){
 	fontPt.update();
 	sys03.update(fontPt.getPoint());
 	
-	if (ofGetFrameNum() % 60 == 0) gpio.setPinValue(2, 1);
-	if (ofGetFrameNum() % 60 == 30) gpio.setPinValue(2, 0);
+	if (ofGetFrameNum() % 60 == 0) gpio.setPinValue(2, true);
+	if (ofGetFrameNum() % 60 == 30) gpio.setPinValue(2, false);
 }
 
 //--------------------------------------------------------------
