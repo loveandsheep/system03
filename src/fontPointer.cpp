@@ -42,7 +42,7 @@ void fontPointer::drawDebug()
 	ofTranslate(-200, -200, 200);
 	ofRotateY(-45);
 	
-	glScaled(scale, scale, 1.0);
+	glScalef(scale, scale, 1.0);
 	ofTranslate(-offset);{
 
 		for (int i = 0;i < sentence.size();i++)
