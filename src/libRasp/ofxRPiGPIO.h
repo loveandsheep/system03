@@ -29,7 +29,7 @@ public:
 	
 	void setPinValue(int numPin, bool digitalV)
 	{
-		printf("pinValue");
+		printf("pinValue\n");
 		if (digitalV)	gpio_set(numPin);
 		else			gpio_clear(numPin);
 	}
