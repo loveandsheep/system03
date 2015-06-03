@@ -45,12 +45,14 @@ public:
 	
 #else
 	
-	void setup(){cout << "func for RPi." << endl;}
+	void setup(){
+//		cout << "func for RPi." << endl;
+	}
 	void setPinMode(int pinNum, int gpio_inOut){
-		cout << "Set pin " << pinNum << "to " << (gpio_inOut ? "OUT" : "IN") << endl;
+//		cout << "Set pin " << pinNum << "to " << (gpio_inOut ? "OUT" : "IN") << endl;
 	}
 	void setPinValue(int numPin, bool digitalV){
-		cout << "Set pin " << numPin << "to " << (digitalV ? "HIGH" : "LOW") << endl;
+//		cout << "Set pin " << numPin << "to " << (digitalV ? "HIGH" : "LOW") << endl;
 	}
 	int	 getPinValue(int numPin){return 0;}
 	
