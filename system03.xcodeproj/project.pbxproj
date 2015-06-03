@@ -116,6 +116,7 @@
 		C627966F1B1C534C00487606 /* virtualSteppingMotor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = virtualSteppingMotor.h; sourceTree = "<group>"; };
 		C62796791B1C5A5500487606 /* ofxKsmrRPiStepManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxKsmrRPiStepManager.cpp; sourceTree = "<group>"; };
 		C627967A1B1C5A5500487606 /* ofxKsmrRPiStepManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxKsmrRPiStepManager.h; sourceTree = "<group>"; };
+		C65AB8181B1ED71000546873 /* ofxRPiGPIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxRPiGPIO.h; path = libRasp/ofxRPiGPIO.h; sourceTree = "<group>"; };
 		C6937888E126BADC8777423B /* OscTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscTypes.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h; sourceTree = SOURCE_ROOT; };
 		D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscTypes.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.cpp; sourceTree = SOURCE_ROOT; };
 		DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscMessage.cpp; path = ../../../addons/ofxOsc/src/ofxOscMessage.cpp; sourceTree = SOURCE_ROOT; };
@@ -356,6 +357,7 @@
 				C627964F1B1C4DE200487606 /* fontPointer.cpp */,
 				C627967A1B1C5A5500487606 /* ofxKsmrRPiStepManager.h */,
 				C62796791B1C5A5500487606 /* ofxKsmrRPiStepManager.cpp */,
+				C65AB8181B1ED71000546873 /* ofxRPiGPIO.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;

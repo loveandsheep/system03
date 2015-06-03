@@ -4,6 +4,8 @@
 #include "fontPointer.h"
 #include "system03.h"
 
+#include "ofxRPiGPIO.h"
+
 class ofApp : public ofBaseApp{
 
 public:
@@ -15,4 +17,5 @@ public:
 	fontPointer fontPt;
 	system03 sys03;
 
+	ofxRPiGPIO gpio;
 };
