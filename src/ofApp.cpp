@@ -16,9 +16,8 @@ void ofApp::update(){
 	
 	fontPt.update();
 	sys03.update(fontPt.getPoint());
-	printf("hello world");
-	if (ofGetFrameNum() % 60 == 0) gpio.setPinValue(2, true);
-	if (ofGetFrameNum() % 60 == 30) gpio.setPinValue(2, false);
+	if (ofGetFrameNum() % 60 == 0) gpio.setPinValue(4, true);
+	if (ofGetFrameNum() % 60 == 30) gpio.setPinValue(4, false);
 }
 
 //--------------------------------------------------------------
