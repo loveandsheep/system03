@@ -29,9 +29,14 @@ public:
 	
 	void setPinValue(int numPin, bool digitalV)
 	{
-		printf("pinValue\n");
-		if (digitalV)	gpio_set(numPin);
-		else			gpio_clear(numPin);
+		if (digitalV){
+			printf("set high");
+			gpio_set(numPin);
+		}
+		else{
+			printf("set low");
+			gpio_clear(numPin);
+		}
 	}
 	
 	int	 getPinValue(int numPin)
