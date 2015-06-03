@@ -14,7 +14,7 @@
 class ofxRPiGPIO{
 public:
 	
-#ifdef TARGET_LINUX_ARM
+//#ifdef TARGET_LINUX_ARM
 //#ifdef TARGET_OSX
 	
 	void setup()
@@ -29,6 +29,7 @@ public:
 	
 	void setPinValue(int numPin, bool digitalV)
 	{
+		printf("pinValue");
 		if (digitalV)	gpio_set(numPin);
 		else			gpio_clear(numPin);
 	}
@@ -43,20 +44,20 @@ public:
 		gpio_configure_pull(numPin, gpio_pullxx);
 	}
 	
-#else
+//#else
 	
-	void setup(){
-//		cout << "func for RPi." << endl;
-	}
-	void setPinMode(int pinNum, int gpio_inOut){
-//		cout << "Set pin " << pinNum << "to " << (gpio_inOut ? "OUT" : "IN") << endl;
-	}
-	void setPinValue(int numPin, bool digitalV){
-//		cout << "Set pin " << numPin << "to " << (digitalV ? "HIGH" : "LOW") << endl;
-	}
-	int	 getPinValue(int numPin){return 0;}
+//	void setup(){
+////		cout << "func for RPi." << endl;
+//	}
+//	void setPinMode(int pinNum, int gpio_inOut){
+////		cout << "Set pin " << pinNum << "to " << (gpio_inOut ? "OUT" : "IN") << endl;
+//	}
+//	void setPinValue(int numPin, bool digitalV){
+////		cout << "Set pin " << numPin << "to " << (digitalV ? "HIGH" : "LOW") << endl;
+//	}
+//	int	 getPinValue(int numPin){return 0;}
 	
-#endif
+//#endif
 	
 };
 
