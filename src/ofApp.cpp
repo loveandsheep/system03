@@ -8,7 +8,7 @@ void ofApp::setup(){
 	camera.setDistance(300);
 	
 	gpio.setup();
-	gpio.setPinMode(4, GPIO_OUTPUT);
+	gpio.setPinMode(22, GPIO_OUTPUT);
 }
 
 //--------------------------------------------------------------
@@ -16,8 +16,8 @@ void ofApp::update(){
 	
 	fontPt.update();
 	sys03.update(fontPt.getPoint());
-	if (ofGetFrameNum() % 60 == 0) gpio.setPinValue(4, true);
-	if (ofGetFrameNum() % 60 == 30) gpio.setPinValue(4, false);
+	if (ofGetFrameNum() % 60 == 0) gpio.setPinValue(22, true);
+	if (ofGetFrameNum() % 60 == 30) gpio.setPinValue(22, false);
 	if (ofGetFrameNum() % 60 == 0) printf("Timer cout \n");
 }
 
