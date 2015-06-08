@@ -4,7 +4,7 @@
 #include "raspGPIO.h"
 
 //  レジスタブロックの物理アドレス
-#define PERI_BASE     0x20000000
+#define PERI_BASE     0x3F000000
 #define GPIO_BASE     (PERI_BASE + 0x200000)
 #define BLOCK_SIZE    4096
 
