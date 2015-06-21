@@ -30,10 +30,10 @@ void ofApp::draw(){
 
 	ofBackground(20);
 	
-//	camera.begin();
-//	fontPt.drawDebug();
-//	sys03.view();
-//	camera.end();
+	camera.begin();
+	fontPt.drawDebug();
+	sys03.view();
+	camera.end();
 	
 	
 	
