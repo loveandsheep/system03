@@ -11,6 +11,7 @@ libs/openFrameworksCompiled/lib/*/*
 
 *.dll
 *.exe
+bin/*
 
 # apothecary
 scripts/apothecary/build
