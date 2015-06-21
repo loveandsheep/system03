@@ -16,7 +16,7 @@ void system03::init()
 	
 	motor = new ofxKsmrRPiStepManager();
 	
-	motor->serial.listDevices();
+//	motor->serial.listDevices();
 	motor->addStepper("arm_0", 200, 0);
 	motor->addStepper("arm_1", 200, 1);
 	motor->addStepper("arm_2", 200, 2);

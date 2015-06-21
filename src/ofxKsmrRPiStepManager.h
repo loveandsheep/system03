@@ -18,6 +18,10 @@
 class ofxKsmrRPiStepManager : public ofxKsmrStepManager{
 public:
 	
+	ofxKsmrRPiStepManager(){
+		setupRPi(false);
+	}
+	
 	void setupRPi(bool callGPIOSetup);
 	
 	/*=== SPI Translate ===*/

@@ -4,13 +4,15 @@
 void ofApp::setup(){
 
 	fontPt.setup("font/Curveless.ttf", 0.5, "test");
-	sys03.init();
 	camera.setDistance(300);
 	
 	ofxRPiGPIO::setup();
 #ifdef USE_GPIO
 	ofxRPiGPIO::setPinMode(22, GPIO_OUTPUT);
 #endif
+
+	sys03.init();
+
 }
 
 //--------------------------------------------------------------
