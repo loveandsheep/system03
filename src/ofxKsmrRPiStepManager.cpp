@@ -8,10 +8,10 @@
 
 #include "ofxKsmrRPiStepManager.h"
 
-void ofxKsmrRPiStepManager::setupRPi()
+void ofxKsmrRPiStepManager::setupRPi(bool callGPIOSetup)
 {
-//	spi.init();
-	ofxRPiGPIO::setup();
+	spi.init();
+	if (callGPIOSetup) ofxRPiGPIO::setup();
 #ifdef USE_GPIO
 	ofxRPiGPIO::setPinMode(RPISTEP_SS, GPIO_OUTPUT);
 #endif

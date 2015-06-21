@@ -18,7 +18,7 @@
 class ofxKsmrRPiStepManager : public ofxKsmrStepManager{
 public:
 	
-	void setupRPi();
+	void setupRPi(bool callGPIOSetup);
 	
 	/*=== SPI Translate ===*/
 	virtual void sendSPIPacketAll		(unsigned char* bytes,int length);

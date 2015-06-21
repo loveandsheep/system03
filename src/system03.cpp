@@ -14,11 +14,7 @@ void system03::init()
 {
 	eyes.setup();
 	
-#ifdef TARGET_OSX
-	motor = new ofxKsmrStepManager();
-#else
 	motor = new ofxKsmrRPiStepManager();
-#endif
 	
 	motor->serial.listDevices();
 	motor->addStepper("arm_0", 200, 0);

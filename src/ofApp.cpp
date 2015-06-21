@@ -16,8 +16,8 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	
-//	fontPt.update();
-//	sys03.update(fontPt.getPoint());
+	fontPt.update();
+	sys03.update(fontPt.getPoint());
 	if (ofGetFrameNum() % 60 == 0) ofxRPiGPIO::setPinValue(22, true);
 	if (ofGetFrameNum() % 60 == 30) ofxRPiGPIO::setPinValue(22, false);
 	if (ofGetFrameNum() % 60 == 0) printf("Timer cout \n");
