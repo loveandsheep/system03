@@ -20,6 +20,7 @@
 		ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD194746185E2DA11468377 /* IpEndpointName.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */; };
+		C60FC48F1B33CF2E00CCDCCD /* raspSPI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C60FC48E1B33CF2E00CCDCCD /* raspSPI.cpp */; };
 		C62796511B1C4DE200487606 /* fontPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C627964F1B1C4DE200487606 /* fontPointer.cpp */; };
 		C62796541B1C52AF00487606 /* system03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C62796521B1C52AF00487606 /* system03.cpp */; };
 		C62796701B1C534C00487606 /* ofxKsmrAgileEye.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C62796561B1C534C00487606 /* ofxKsmrAgileEye.cpp */; };
@@ -104,6 +105,8 @@
 		BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscPrintReceivedElements.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.cpp; sourceTree = SOURCE_ROOT; };
 		C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscReceiver.cpp; path = ../../../addons/ofxOsc/src/ofxOscReceiver.cpp; sourceTree = SOURCE_ROOT; };
 		C58862C6D212C8E8A83810F4 /* ofxOscMessage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscMessage.h; path = ../../../addons/ofxOsc/src/ofxOscMessage.h; sourceTree = SOURCE_ROOT; };
+		C60FC48D1B33CE0100CCDCCD /* raspSPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = raspSPI.h; path = libRasp/raspSPI.h; sourceTree = "<group>"; };
+		C60FC48E1B33CF2E00CCDCCD /* raspSPI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = raspSPI.cpp; path = libRasp/raspSPI.cpp; sourceTree = "<group>"; };
 		C627964F1B1C4DE200487606 /* fontPointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fontPointer.cpp; sourceTree = "<group>"; };
 		C62796501B1C4DE200487606 /* fontPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontPointer.h; sourceTree = "<group>"; };
 		C62796521B1C52AF00487606 /* system03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = system03.cpp; sourceTree = "<group>"; };
@@ -358,6 +361,8 @@
 				C627967A1B1C5A5500487606 /* ofxKsmrRPiStepManager.h */,
 				C62796791B1C5A5500487606 /* ofxKsmrRPiStepManager.cpp */,
 				C65AB8181B1ED71000546873 /* ofxRPiGPIO.h */,
+				C60FC48D1B33CE0100CCDCCD /* raspSPI.h */,
+				C60FC48E1B33CF2E00CCDCCD /* raspSPI.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -494,6 +499,7 @@
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
 				C62796741B1C534C00487606 /* ofxKsmrStepManager.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
+				C60FC48F1B33CF2E00CCDCCD /* raspSPI.cpp in Sources */,
 				C62796751B1C534C00487606 /* virtualSteppingMotor.cpp in Sources */,
 				C627967B1B1C5A5500487606 /* ofxKsmrRPiStepManager.cpp in Sources */,
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,

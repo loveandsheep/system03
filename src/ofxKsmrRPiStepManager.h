@@ -10,9 +10,15 @@
 #define __system03__ofxKsmrRPiStepManager__
 
 #include "ofxKsmrStepManager.h"
+#include "ofxRPiGPIO.h"
+#include "raspSPI.h"
+
+#define RPISTEP_SS 25
 
 class ofxKsmrRPiStepManager : public ofxKsmrStepManager{
 public:
+	
+	void setupRPi();
 	
 	/*=== SPI Translate ===*/
 	virtual void sendSPIPacketAll		(unsigned char* bytes,int length);
@@ -30,6 +36,7 @@ public:
 	void spi_send(unsigned char sig);
 	void spi_close();
 	
+	SPI spi;
 };
 
 

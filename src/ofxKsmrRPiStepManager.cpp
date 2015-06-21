@@ -8,6 +8,15 @@
 
 #include "ofxKsmrRPiStepManager.h"
 
+void ofxKsmrRPiStepManager::setupRPi()
+{
+	spi.init();
+	ofxRPiGPIO::setup();
+#ifdef USE_GPIO
+	ofxRPiGPIO::setPinMode(RPISTEP_SS, GPIO_OUTPUT);
+#endif
+}
+
 void ofxKsmrRPiStepManager::sendSPIPacketAll(unsigned char *bytes, int length){
 	
 	int sigLength = steppers.size() * length;
@@ -121,13 +130,17 @@ void ofxKsmrRPiStepManager::spi_sendMulti(unsigned char *bytes, int length){
 
 #pragma mark TODO: implement RPi spiMethod
 void ofxKsmrRPiStepManager::spi_open(){
-	
+#ifdef USE_GPIO
+	ofxRPiGPIO::setPinValue(RPISTEP_SS, false);
+#endif
 }
 
 void ofxKsmrRPiStepManager::spi_send(unsigned char sig){
-//	cout << "Send SPIbytes " << int(sig) << endl;
+	spi.send1(sig);
 }
 
 void ofxKsmrRPiStepManager::spi_close(){
-	
+#ifdef USE_GPIO
+	ofxRPiGPIO::setPinValue(RPISTEP_SS, true);
+#endif
 }

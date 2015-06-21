@@ -9,26 +9,37 @@
 #ifndef __system03__ofxRPiGPIO__
 #define __system03__ofxRPiGPIO__
 
+#define USE_GPIO
+#ifdef USE_GPIO
 #include "raspGPIO.h"
+#endif
+
+bool rpiGPIO_inited = false;
 
 class ofxRPiGPIO{
 public:
 	
 //#ifdef TARGET_LINUX_ARM
 //#ifdef TARGET_OSX
-	
-	void setup()
+	static void setup()
 	{
+		if (rpiGPIO_inited) return;
+#ifdef USE_GPIO
 		gpio_init();
+#endif
+		rpiGPIO_inited = true;
 	}
 	
-	void setPinMode(int pinNum, int gpio_inOut)
+	static void setPinMode(int pinNum, int gpio_inOut)
 	{
+#ifdef USE_GPIO
 		gpio_configure(pinNum, gpio_inOut);
+#endif
 	}
 	
-	void setPinValue(int numPin, bool digitalV)
+	static void setPinValue(int numPin, bool digitalV)
 	{
+#ifdef USE_GPIO
 		if (digitalV){
 			printf("set high\n");
 			gpio_set(numPin);
@@ -38,16 +49,22 @@ public:
 			printf("set low\n");
 			gpio_clear(numPin);
 		}
+#endif
 	}
 	
-	int	 getPinValue(int numPin)
+	static int	 getPinValue(int numPin)
 	{
+#ifdef USE_GPIO
 		return gpio_read(numPin);
+#endif 
+		return 0;
 	}
 	
-	void setPullConf(int numPin, int gpio_pullxx)
+	static void setPullConf(int numPin, int gpio_pullxx)
 	{
+#ifdef USE_GPIO
 		gpio_configure_pull(numPin, gpio_pullxx);
+#endif
 	}
 	
 //#else

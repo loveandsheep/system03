@@ -16,6 +16,4 @@ public:
 	ofEasyCam camera;
 	fontPointer fontPt;
 	system03 sys03;
-
-	ofxRPiGPIO gpio;
 };
