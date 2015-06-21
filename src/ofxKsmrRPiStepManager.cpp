@@ -10,7 +10,7 @@
 
 void ofxKsmrRPiStepManager::setupRPi()
 {
-	spi.init();
+//	spi.init();
 	ofxRPiGPIO::setup();
 #ifdef USE_GPIO
 	ofxRPiGPIO::setPinMode(RPISTEP_SS, GPIO_OUTPUT);
@@ -136,7 +136,7 @@ void ofxKsmrRPiStepManager::spi_open(){
 }
 
 void ofxKsmrRPiStepManager::spi_send(unsigned char sig){
-	spi.send1(sig);
+//	spi.send1(sig);
 }
 
 void ofxKsmrRPiStepManager::spi_close(){
