@@ -14,8 +14,6 @@
 #include "raspGPIO.h"
 #endif
 
-bool rpiGPIO_inited = false;
-
 class ofxRPiGPIO{
 public:
 	
@@ -23,11 +21,9 @@ public:
 //#ifdef TARGET_OSX
 	static void setup()
 	{
-		if (rpiGPIO_inited) return;
 #ifdef USE_GPIO
 		gpio_init();
 #endif
-		rpiGPIO_inited = true;
 	}
 	
 	static void setPinMode(int pinNum, int gpio_inOut)
