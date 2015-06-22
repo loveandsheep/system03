@@ -131,7 +131,7 @@ void ofxKsmrRPiStepManager::spi_sendMulti(unsigned char *bytes, int length){
 #pragma mark TODO: implement RPi spiMethod
 void ofxKsmrRPiStepManager::spi_open(){
 #ifdef USE_GPIO
-	ofxRPiGPIO::setPinValue(RPISTEP_SS, false);
+	ofxRPiGPIO::setPinValue(RPISTEP_SS, true);
 #endif
 }
 
@@ -142,6 +142,6 @@ void ofxKsmrRPiStepManager::spi_send(unsigned char sig){
 
 void ofxKsmrRPiStepManager::spi_close(){
 #ifdef USE_GPIO
-	ofxRPiGPIO::setPinValue(RPISTEP_SS, true);
+	ofxRPiGPIO::setPinValue(RPISTEP_SS, false);
 #endif
 }
