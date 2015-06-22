@@ -136,9 +136,9 @@ void ofxKsmrRPiStepManager::spi_open(){
 }
 
 void ofxKsmrRPiStepManager::spi_send(unsigned char sig){
-	cout << "send 1byte";
+	printf("send 1byte");
 	spi.send1(128);
-	cout << "...Success" << endl;
+	printf("...Success");
 }
 
 void ofxKsmrRPiStepManager::spi_close(){
