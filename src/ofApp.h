@@ -14,8 +14,8 @@ public:
 	void update();
 	void draw();
 
-//	ofEasyCam camera;
-//	fontPointer fontPt;
-//	system03 sys03;
-	SPI spi;
+	ofEasyCam camera;
+	fontPointer fontPt;
+	system03 sys03;
+
 };
