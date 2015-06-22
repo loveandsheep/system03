@@ -5,6 +5,7 @@
 #include "system03.h"
 
 #include "ofxRPiGPIO.h"
+#define LASER_PIN 17
 
 class ofApp : public ofBaseApp{
 
