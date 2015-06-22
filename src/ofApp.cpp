@@ -17,6 +17,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+	usleep(100000);
 	spi.send1(128);
 //	fontPt.update();
 //	sys03.update(fontPt.getPoint());
