@@ -24,7 +24,7 @@ void ofApp::update(){
 	if (ofGetFrameNum() % 60 == 0){
 //		testMotor.enableAllMotor();
 		cout << "Send" << endl;
-		testMotor.spi.send1(125);
+		testMotor.sendSpi(125);
 //		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
 	}
 //	sys03.update(fontPt.getPoint());
