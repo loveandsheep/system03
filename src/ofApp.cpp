@@ -6,26 +6,31 @@ void ofApp::setup(){
 	fontPt.setup("font/Curveless.ttf", 0.5, "test");
 	camera.setDistance(300);
 	
-	ofxRPiGPIO::setup();
-#ifdef USE_GPIO
-	ofxRPiGPIO::setPinMode(LASER_PIN, GPIO_OUTPUT);
-#endif
+//	ofxRPiGPIO::setup();
+//#ifdef USE_GPIO
+//	ofxRPiGPIO::setPinMode(LASER_PIN, GPIO_OUTPUT);
+//#endif
 
-	sys03.init();
+//	sys03.init();
+	testMotor.setup(true, 1);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 	fontPt.update();
-//	sys03.update(fontPt.getPoint());
-	if (ofGetFrameNum() % 60 == 0) {
-		sys03.motor->setStepperAll(true);
-		sys03.motor->go_to(ofRandom(300));
-		sys03.motor->setStepperAll(false);
+	if (ofGetFrameNum() % 60 == 0){
+		testMotor.enableAllMotor();
+		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
 	}
-	if (ofGetFrameNum() % 60 == 0) ofxRPiGPIO::setPinValue(LASER_PIN, true);
-	if (ofGetFrameNum() % 60 == 30) ofxRPiGPIO::setPinValue(LASER_PIN, false);
-	if (ofGetFrameNum() % 60 == 0) printf("Timer cout \n");
+//	sys03.update(fontPt.getPoint());
+//	if (ofGetFrameNum() % 60 == 0) {
+//		sys03.motor->setStepperAll(true);
+//		sys03.motor->go_to(ofRandom(300));
+//		sys03.motor->setStepperAll(false);
+//	}
+//	if (ofGetFrameNum() % 60 == 0) ofxRPiGPIO::setPinValue(LASER_PIN, true);
+//	if (ofGetFrameNum() % 60 == 30) ofxRPiGPIO::setPinValue(LASER_PIN, false);
+//	if (ofGetFrameNum() % 60 == 0) printf("Timer cout \n");
 }
 
 //--------------------------------------------------------------

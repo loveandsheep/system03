@@ -5,6 +5,7 @@
 #include "system03.h"
 
 #include "ofxRPiGPIO.h"
+#include "ofxKsmrRPiToL6470.h"
 #define LASER_PIN 17
 
 class ofApp : public ofBaseApp{
@@ -17,5 +18,6 @@ public:
 	ofEasyCam camera;
 	fontPointer fontPt;
 	system03 sys03;
-
+	
+	ofxKsmrRPiToL6470 testMotor;
 };
