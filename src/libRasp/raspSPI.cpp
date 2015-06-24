@@ -4,12 +4,12 @@
 #include "raspSPI.h"
 
 #define SPI_BLOCKSIZE 2048              //  ブロック転送サイズ（画像等）
-#define SPI_DELAY     0
+#define SPI_DELAY     10
 
 //  SPI モジュールの初期化（最初に１回だけ呼び出す: "/dev/spidev0.0", 8MHz）
 void SPI::init ()
 {
-    init("/dev/spidev0.0", 8000000);
+    init("/dev/spidev0.0", 1000000);
 }
 //  マニュアル初期化
 //  ex) spi_init("/dev/spidev0.1", 1000000);  //  1MHz clock
