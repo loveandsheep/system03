@@ -13,6 +13,10 @@ void ofApp::setup(){
 
 //	sys03.init();
 	testMotor.setup(true, 1);
+	
+	testMotor.sendSignal(RPI_L6470_SIG_VOLT_HOLD, 255);
+	testMotor.sendSignal(RPI_L6470_SIG_VOLT_ACC, 255);
+	testMotor.sendSignal(RPI_L6470_SIG_ABSPOS, 0);
 }
 
 //--------------------------------------------------------------
