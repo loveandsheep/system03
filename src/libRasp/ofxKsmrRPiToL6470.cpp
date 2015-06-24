@@ -82,7 +82,6 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit, int *val)
 		spiOpen();
 		for (int i = 0;i < motorFlg.size();i++){
 			sendSpi(sigs[j * motorFlg.size() + i]);
-			usleep(100000);
 		}
 		spiClose();
 		
