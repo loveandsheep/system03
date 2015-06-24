@@ -21,10 +21,11 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 //	fontPt.update();
-	if (ofGetFrameNum() % 1 == 0){
+	if (ofGetFrameNum() % 3 == 0){
 //		testMotor.enableAllMotor();
 		cout << "Send" << endl;
-		testMotor.sendSpi('a');
+		unsigned char t[] = {'a', 'b', 'v'};
+		testMotor.spi.sendN(t, 3);
 //		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
 	}
 //	sys03.update(fontPt.getPoint());
