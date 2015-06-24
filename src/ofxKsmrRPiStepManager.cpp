@@ -136,7 +136,7 @@ void ofxKsmrRPiStepManager::spi_open(){
 }
 
 void ofxKsmrRPiStepManager::spi_send(unsigned char sig){
-	spi.send1(128);
+	spi.send1(sig);
 	usleep(100);
 }
 
