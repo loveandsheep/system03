@@ -81,7 +81,6 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit, int *val)
 		
 		spiOpen();
 		for (int i = 0;i < motorFlg.size();i++){
-			std::cout << "send sPI count :" << count << std::endl;
 			sendSpi(sigs[j * motorFlg.size() + i]);
 		}
 		spiClose();
