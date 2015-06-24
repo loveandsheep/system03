@@ -79,7 +79,7 @@ void SPI::send1 (unsigned char data)
     int ret = ioctl(fd, SPI_IOC_MESSAGE(1), tr);
     if (ret < 0) {
         printf("error: cannot send spi message (SPI::send1)\n");
-        exit(-1);
+//        exit(-1);
     }
 }
     
@@ -99,7 +99,7 @@ void SPI::sendN (unsigned char *data, int n)
     int ret = ioctl(fd, SPI_IOC_MESSAGE(1), tr);
     if (ret < 0) {
         printf("error: cannot send spi message (SPI::sendN)\n");
-        exit(-1);
+//        exit(-1);
     }
 }
 

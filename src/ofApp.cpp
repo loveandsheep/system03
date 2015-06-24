@@ -13,9 +13,9 @@ void ofApp::setup(){
 
 //	sys03.init();
 	testMotor.setup(true, 1);
-//	testMotor.sendSignal(RPI_L6470_SIG_VOLT_HOLD, 255);
-//	testMotor.sendSignal(RPI_L6470_SIG_VOLT_ACC, 255);
-//	testMotor.sendSignal(RPI_L6470_SIG_ABSPOS, 0);
+	testMotor.sendSignal(RPI_L6470_SIG_VOLT_HOLD, 255);
+	testMotor.sendSignal(RPI_L6470_SIG_VOLT_ACC, 255);
+	testMotor.sendSignal(RPI_L6470_SIG_ABSPOS, 0);
 }
 
 //--------------------------------------------------------------
@@ -25,8 +25,7 @@ void ofApp::update(){
 //		testMotor.sendSpi('a');
 //		testMotor.enableAllMotor();
 		cout << "Send" << endl;
-		testMotor.sendSpi('a');
-//		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
+		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
 	}
 //	sys03.update(fontPt.getPoint());
 //	if (ofGetFrameNum() % 60 == 0) {
