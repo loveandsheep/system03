@@ -23,8 +23,9 @@ void ofApp::setup(){
 void ofApp::update(){
 	fontPt.update();
 	if (ofGetFrameNum() % 60 == 0){
-		testMotor.enableAllMotor();
-		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
+		testMotor.sendSpi('a');
+//		testMotor.enableAllMotor();
+//		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
 	}
 //	sys03.update(fontPt.getPoint());
 //	if (ofGetFrameNum() % 60 == 0) {

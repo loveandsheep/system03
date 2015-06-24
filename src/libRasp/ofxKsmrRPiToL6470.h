@@ -48,7 +48,7 @@ public:
 	
 	void setGo_toMult	(int* pos, bool inverse = false);
 
-protected:
+//protected:
 
 	std::vector<bool> motorFlg;
 	int numBits[0xFF];
