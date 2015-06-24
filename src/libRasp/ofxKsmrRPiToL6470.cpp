@@ -98,7 +98,7 @@ void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 	int r = spi->send1(sig);
 	while (r < 0){
 		spi->send1(sig);
-		std::cout << "retry sending" << std::endl;
+		printf("retry sending");
 	}
 	usleep(100000);
 }
