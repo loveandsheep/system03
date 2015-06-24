@@ -25,13 +25,14 @@ void ofApp::setup(){
 void ofApp::update(){
 //	fontPt.update();
 	cout << "Send" << endl;
-	testMotor.sendSpi('a');
+//	testMotor.sendSpi('a');
+	testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
 	if (ofGetFrameNum() % 1 == 0){
 //		testMotor.enableAllMotor();
 //		testMotor.sendSpi('a');
 //		unsigned char t[] = {'a', 'b', 'v'};
 //		testMotor.spi.sendN(t, 3);
-//		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
+
 	}
 //	sys03.update(fontPt.getPoint());
 //	if (ofGetFrameNum() % 60 == 0) {
