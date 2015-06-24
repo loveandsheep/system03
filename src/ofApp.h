@@ -17,7 +17,7 @@ public:
 
 	ofEasyCam camera;
 	fontPointer fontPt;
-	system03 sys03;
+//	system03 sys03;
 	
 	ofxKsmrRPiToL6470 testMotor;
 };

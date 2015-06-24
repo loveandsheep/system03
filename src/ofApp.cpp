@@ -3,8 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-	fontPt.setup("font/Curveless.ttf", 0.5, "test");
-	camera.setDistance(300);
+//	fontPt.setup("font/Curveless.ttf", 0.5, "test");
+//	camera.setDistance(300);
 	
 //	ofxRPiGPIO::setup();
 //#ifdef USE_GPIO
@@ -13,15 +13,14 @@ void ofApp::setup(){
 
 //	sys03.init();
 	testMotor.setup(true, 1);
-	
-	testMotor.sendSignal(RPI_L6470_SIG_VOLT_HOLD, 255);
-	testMotor.sendSignal(RPI_L6470_SIG_VOLT_ACC, 255);
-	testMotor.sendSignal(RPI_L6470_SIG_ABSPOS, 0);
+//	testMotor.sendSignal(RPI_L6470_SIG_VOLT_HOLD, 255);
+//	testMotor.sendSignal(RPI_L6470_SIG_VOLT_ACC, 255);
+//	testMotor.sendSignal(RPI_L6470_SIG_ABSPOS, 0);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	fontPt.update();
+//	fontPt.update();
 	if (ofGetFrameNum() % 60 == 0){
 		testMotor.sendSpi('a');
 //		testMotor.enableAllMotor();
@@ -41,12 +40,12 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-	ofBackground(20);
+//	ofBackground(20);
 	
-	camera.begin();
-	fontPt.drawDebug();
-	sys03.view();
-	camera.end();
+//	camera.begin();
+//	fontPt.drawDebug();
+//	sys03.view();
+//	camera.end();
 	
 	
 	
