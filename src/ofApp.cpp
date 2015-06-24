@@ -27,7 +27,8 @@ void ofApp::update(){
 	if (ofGetFrameNum() % 1 == 0){
 //		testMotor.enableAllMotor();
 		cout << "Send" << endl;
-		testMotor.sendSpi('a');
+		spi.send1('a');
+//		testMotor.sendSpi('a');
 //		unsigned char t[] = {'a', 'b', 'v'};
 //		testMotor.spi.sendN(t, 3);
 //		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
