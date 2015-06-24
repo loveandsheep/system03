@@ -9,7 +9,7 @@
 //  SPI モジュールの初期化（最初に１回だけ呼び出す: "/dev/spidev0.0", 8MHz）
 void SPI::init ()
 {
-    init("/dev/spidev0.0", 500000);
+    init("/dev/spidev0.0", 8000000);
 }
 //  マニュアル初期化
 //  ex) spi_init("/dev/spidev0.1", 1000000);  //  1MHz clock
