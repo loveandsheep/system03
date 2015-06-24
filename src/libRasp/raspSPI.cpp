@@ -25,7 +25,7 @@ void SPI::init (const char *device, int clockInHz)
         exit(-1);
     }
     //  転送モード 0 を送信・受信に設定（オマジナイ）
-    unsigned char mode = SPI_MODE_0;
+    unsigned char mode = SPI_MODE_3;
     ret = ioctl(fd, SPI_IOC_WR_MODE, &mode);
     if (ret < 0) {
         printf("error: cannot set WR_MODE to %d (SPI::init)\n", mode);
