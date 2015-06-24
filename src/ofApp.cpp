@@ -25,10 +25,11 @@ void ofApp::setup(){
 void ofApp::update(){
 //	fontPt.update();
 	cout << "Send" << endl;
-	testMotor.sendSpi('a');
-	testMotor.sendSpi('a');
+
 
 	if (ofGetFrameNum() % 1 == 0){
+		testMotor.sendSpi('a');
+		testMotor.sendSpi('a');
 //		testMotor.enableAllMotor();
 //		testMotor.sendSpi('a');
 //		unsigned char t[] = {'a', 'b', 'v'};
