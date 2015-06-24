@@ -23,8 +23,12 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	cout << "Send" << endl;
+	gpio_set(25);
 	spi.send1('a');
+	gpio_clear(25);
+	gpio_set(25);
 	spi.send1('a');
+	gpio_clear(25);
 //	fontPt.update();
 //	if (ofGetFrameNum() % 3 == 0){
 //		testMotor.enableAllMotor();
