@@ -24,6 +24,7 @@ void ofApp::setup(){
 void ofApp::update(){
 	cout << "Send" << endl;
 	spi.send1('a');
+	spi.send1('a');
 //	fontPt.update();
 //	if (ofGetFrameNum() % 3 == 0){
 //		testMotor.enableAllMotor();
