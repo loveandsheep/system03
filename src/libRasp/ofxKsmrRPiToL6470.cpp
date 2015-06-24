@@ -92,6 +92,11 @@ void ofxKsmrRPiToL6470::spiOpen()
 	gpio_clear(RPI_L6470_SS_PIN);
 }
 
+void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
+{
+	spi.send1(sig);
+}
+
 void ofxKsmrRPiToL6470::spiClose()
 {
 	gpio_set(RPI_L6470_SS_PIN);
