@@ -62,7 +62,7 @@ void SPI::quit ()
 }
 
 //  １バイトデータの単発送信
-void SPI::send1 (unsigned char data)
+int SPI::send1 (unsigned char data)
 {
     //  setup a block
     static unsigned char tdata[1];
@@ -81,6 +81,7 @@ void SPI::send1 (unsigned char data)
         printf("error: cannot send spi message (SPI::send1)\n");
 //        exit(-1);
     }
+	return ret
 }
     
 //  Ｎバイトデータの送信（N <= SPI_BUFFERSIZE）

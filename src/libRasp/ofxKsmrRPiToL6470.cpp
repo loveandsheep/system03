@@ -95,7 +95,11 @@ void ofxKsmrRPiToL6470::spiOpen()
 
 void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 {
-	spi->send1(sig);
+	int r = spi->send1(sig);
+	while (r < 0){
+		spi->send1(sig);
+		cout << "retry sending" << endl;
+	}
 	usleep(100000);
 }
 

@@ -29,7 +29,7 @@ public:
     //  sendN: Ｎバイトデータの送信（n <= 2048）
     void sendN (unsigned char *data, int n);
     //  send1: １バイトデータの単発送信
-    void send1 (unsigned char data);
+    int send1 (unsigned char data);
     //  receiveN: Ｎバイトデータの受信
     void sendRecN (unsigned char *send, unsigned char *rec, int n);
 private:
