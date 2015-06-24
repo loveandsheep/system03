@@ -81,7 +81,7 @@ int SPI::send1 (unsigned char data)
         printf("error: cannot send spi message (SPI::send1)\n");
 //        exit(-1);
     }
-	return ret
+	return ret;
 }
     
 //  Ｎバイトデータの送信（N <= SPI_BUFFERSIZE）
