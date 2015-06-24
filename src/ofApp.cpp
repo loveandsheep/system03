@@ -24,11 +24,11 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 //	fontPt.update();
-	cout << "Send" << endl;
 
 
-	if (ofGetFrameNum() % 1 == 0){
-		spi.send1('a');
+	if (ofGetFrameNum() % 60 == 0){
+		cout << "Send" << endl;
+		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
 	}
 
 //		testMotor.enableAllMotor();

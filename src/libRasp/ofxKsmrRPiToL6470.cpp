@@ -96,6 +96,7 @@ void ofxKsmrRPiToL6470::spiOpen()
 void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 {
 	spi->send1(sig);
+	usleep(50000);
 }
 
 void ofxKsmrRPiToL6470::spiClose()
