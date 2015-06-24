@@ -28,14 +28,15 @@ void ofApp::update(){
 
 
 	if (ofGetFrameNum() % 1 == 0){
-		testMotor.sendSpi('a');
-		testMotor.sendSpi('a');
+		spi.send1('a');
+	}
+
 //		testMotor.enableAllMotor();
 //		testMotor.sendSpi('a');
 //		unsigned char t[] = {'a', 'b', 'v'};
 //		testMotor.spi.sendN(t, 3);
 
-	}
+//	}
 //	sys03.update(fontPt.getPoint());
 //	if (ofGetFrameNum() % 60 == 0) {
 //		sys03.motor->setStepperAll(true);
