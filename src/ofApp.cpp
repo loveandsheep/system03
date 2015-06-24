@@ -16,7 +16,7 @@ void ofApp::setup(){
 //	testMotor.sendSignal(RPI_L6470_SIG_VOLT_HOLD, 255);
 //	testMotor.sendSignal(RPI_L6470_SIG_VOLT_ACC, 255);
 //	testMotor.sendSignal(RPI_L6470_SIG_ABSPOS, 0);
-	
+	gpio_init();
 	spi.init();
 }
 
