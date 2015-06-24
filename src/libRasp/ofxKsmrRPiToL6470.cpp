@@ -82,7 +82,7 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit, int *val)
 		spiOpen();
 		spi.sendN(&sigs[j * motorFlg.size()], motorFlg.size());
 		spiClose();
-		
+		sleep(1);
 	}
 }
 
@@ -94,7 +94,6 @@ void ofxKsmrRPiToL6470::spiOpen()
 void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 {
 	spi.send1(sig);
-	usleep(100);
 }
 
 void ofxKsmrRPiToL6470::spiClose()
