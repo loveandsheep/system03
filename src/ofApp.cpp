@@ -12,31 +12,26 @@ void ofApp::setup(){
 //#endif
 
 //	sys03.init();
-//	testMotor.setup(true, 1);
+
+	spi.init();
+	testMotor.setup(true, 1);
+	testMotor.spi = &spi;
 //	testMotor.sendSignal(RPI_L6470_SIG_VOLT_HOLD, 255);
 //	testMotor.sendSignal(RPI_L6470_SIG_VOLT_ACC, 255);
 //	testMotor.sendSignal(RPI_L6470_SIG_ABSPOS, 0);
-	gpio_init();
-	spi.init();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	cout << "Send" << endl;
-	gpio_set(25);
-	spi.send1('a');
-	gpio_clear(25);
-	gpio_set(25);
-	spi.send1('a');
-	gpio_clear(25);
 //	fontPt.update();
-//	if (ofGetFrameNum() % 3 == 0){
+	if (ofGetFrameNum() % 3 == 0){
 //		testMotor.enableAllMotor();
-//		cout << "Send" << endl;
+		cout << "Send" << endl;
+		testMotor.sendSpi('a');
 //		unsigned char t[] = {'a', 'b', 'v'};
 //		testMotor.spi.sendN(t, 3);
 //		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
-//	}
+	}
 //	sys03.update(fontPt.getPoint());
 //	if (ofGetFrameNum() % 60 == 0) {
 //		sys03.motor->setStepperAll(true);

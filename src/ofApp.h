@@ -19,6 +19,6 @@ public:
 //	fontPointer fontPt;
 //	system03 sys03;
 	
-//	ofxKsmrRPiToL6470 testMotor;
+	ofxKsmrRPiToL6470 testMotor;
 	SPI spi;
 };

@@ -60,7 +60,7 @@ public:
 	void spiOpen();
 	void spiClose();
 	
-	SPI spi;
+	SPI* spi;
 	
 };
 

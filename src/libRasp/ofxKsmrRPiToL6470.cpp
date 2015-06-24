@@ -11,7 +11,7 @@
 void ofxKsmrRPiToL6470::setup(bool callGPIOSetup, int numMotor)
 {
 	if (callGPIOSetup) gpio_init();
-	spi.init();
+	gpio_configure(RPI_L6470_SS_PIN, GPIO_OUTPUT);
 	
 	motorFlg.assign(numMotor, false);
 	
@@ -95,7 +95,7 @@ void ofxKsmrRPiToL6470::spiOpen()
 
 void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 {
-	spi.send1(sig);
+	spi->send1(sig);
 }
 
 void ofxKsmrRPiToL6470::spiClose()
