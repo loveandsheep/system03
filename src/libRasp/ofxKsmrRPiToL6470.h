@@ -11,10 +11,11 @@
 
 #include <stdio.h>
 #include <vector>
-#include "raspSPI.h"
-#include "raspGPIO.h"
+#include <wiringPi.h>
+#include <wiringPiSPI.h>
 
 #define RPI_L6470_SS_PIN 25
+#define SPI_CHANNEL 0
 
 #define RPI_L6470_SIG_ABSPOS		0x01
 #define RPI_L6470_SIG_ACCEL			0x05

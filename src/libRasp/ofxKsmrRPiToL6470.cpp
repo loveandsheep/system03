@@ -10,8 +10,17 @@
 
 void ofxKsmrRPiToL6470::setup(bool callGPIOSetup, int numMotor)
 {
-	if (callGPIOSetup) gpio_init();
-	gpio_configure(RPI_L6470_SS_PIN, GPIO_OUTPUT);
+	int speed = 10000000;
+	if ((wiringPiSPISetup (SPI_CHANNEL, speed)) < 0) {
+		printf("wiringPiSPISetup error \n");
+	}
+	
+	if (wiringPiSetupGpio() == -1)
+	{
+		printf("GPIO ERROR! \n");
+	}
+	pinMode(RPI_L6470_SS_PIN, OUTPUT);
+	digitalWrite(RPI_L6470_SS_PIN, 1);
 	
 	motorFlg.assign(numMotor, false);
 	
@@ -90,22 +99,17 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit, int *val)
 
 void ofxKsmrRPiToL6470::spiOpen()
 {
-	gpio_clear(RPI_L6470_SS_PIN);
+	digitalWrite(RPI_L6470_SS_PIN, 0);
 }
 
 void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 {
-	int r = spi->send1(sig);
-	while (r < 0){
-		spi->send1(sig);
-		printf("retry sending");
-	}
-	usleep(100000);
+	wiringPiSPIDataRW(SPI_CHANNEL, &sig, 1);
 }
 
 void ofxKsmrRPiToL6470::spiClose()
 {
-	gpio_set(RPI_L6470_SS_PIN);
+	digitalWrite(RPI_L6470_SS_PIN, 1);
 }
 
 /* Motor SW */
