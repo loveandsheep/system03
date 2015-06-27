@@ -71,10 +71,10 @@ void ofxKsmrRPiToL6470::sendSinglePacket(unsigned char cmd, int numBit, int val)
 		vals.push_back(val);
 	}
 	
-	sendMultPacket(cmd, numBit, &val);
+	sendMultPacket(cmd, numBit, vals);
 }
 
-void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit, int *val)
+void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit,vector<int> const & val)
 {
 	int numByte = numBit / 8;
 	if (numBit % 8 > 0) numByte++;
