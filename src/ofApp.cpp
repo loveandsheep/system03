@@ -7,6 +7,7 @@ void ofApp::setup(){
 	camera.setDistance(300);
 	
 	sys03.init();
+	receiver.setup(54503);
 
 #ifndef TARGET_OSX
 	pinMode(LASER_PIN, OUTPUT);
@@ -27,6 +28,14 @@ void ofApp::update(){
 		sys03.motor.setGo_toMult(mot);
 	}
 	 */
+	
+	while (receiver.hasWaitingMessages())
+	{
+		ofxOscMessage m;
+		receiver.getNextMessage(&m);
+		
+		cout << "OSC received" << endl;
+	}
 
 	fontPt.update();
 	sys03.update(fontPt.getPoint());

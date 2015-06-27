@@ -1,10 +1,11 @@
 #pragma once
 
 #include "ofMain.h"
-#include "fontPointer.h"
+#include "ofxOsc.h"
 #include "system03.h"
-
+#include "fontPointer.h"
 #include "ofxKsmrRPiToL6470.h"
+
 #define LASER_PIN 17
 
 class ofApp : public ofBaseApp{
@@ -16,9 +17,9 @@ public:
 	
 	void exit();
 
-	ofEasyCam camera;
-	fontPointer fontPt;
-	system03 sys03;
-	
-	
+	ofEasyCam		camera;
+	system03		sys03;
+	fontPointer		fontPt;
+	ofxOscReceiver	receiver;
+
 };
