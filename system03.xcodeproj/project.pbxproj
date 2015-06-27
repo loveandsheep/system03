@@ -20,13 +20,13 @@
 		ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ADD194746185E2DA11468377 /* IpEndpointName.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */; };
-		C60FC48F1B33CF2E00CCDCCD /* raspSPI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C60FC48E1B33CF2E00CCDCCD /* raspSPI.cpp */; };
+		C60D005D1B3E4ED700C7D944 /* libwiringPi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C60D00571B3E4ED700C7D944 /* libwiringPi.a */; };
+		C60D005E1B3E4ED700C7D944 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C60D00581B3E4ED700C7D944 /* README.md */; };
 		C62796511B1C4DE200487606 /* fontPointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C627964F1B1C4DE200487606 /* fontPointer.cpp */; };
 		C62796541B1C52AF00487606 /* system03.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C62796521B1C52AF00487606 /* system03.cpp */; };
 		C62796701B1C534C00487606 /* ofxKsmrAgileEye.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C62796561B1C534C00487606 /* ofxKsmrAgileEye.cpp */; };
 		C62796741B1C534C00487606 /* ofxKsmrStepManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C627966C1B1C534C00487606 /* ofxKsmrStepManager.cpp */; };
 		C62796751B1C534C00487606 /* virtualSteppingMotor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C627966E1B1C534C00487606 /* virtualSteppingMotor.cpp */; };
-		C627967B1B1C5A5500487606 /* ofxKsmrRPiStepManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C62796791B1C5A5500487606 /* ofxKsmrRPiStepManager.cpp */; };
 		C6BD0C281B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C261B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -106,8 +106,33 @@
 		BC8881B3C8C0A1C45F042E7A /* OscPrintReceivedElements.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscPrintReceivedElements.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPrintReceivedElements.cpp; sourceTree = SOURCE_ROOT; };
 		C2FAC65C491D4231379F3298 /* ofxOscReceiver.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscReceiver.cpp; path = ../../../addons/ofxOsc/src/ofxOscReceiver.cpp; sourceTree = SOURCE_ROOT; };
 		C58862C6D212C8E8A83810F4 /* ofxOscMessage.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxOscMessage.h; path = ../../../addons/ofxOsc/src/ofxOscMessage.h; sourceTree = SOURCE_ROOT; };
-		C60FC48D1B33CE0100CCDCCD /* raspSPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = raspSPI.h; path = libRasp/raspSPI.h; sourceTree = "<group>"; };
-		C60FC48E1B33CF2E00CCDCCD /* raspSPI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = raspSPI.cpp; path = libRasp/raspSPI.cpp; sourceTree = "<group>"; };
+		C60D003E1B3E4ED700C7D944 /* drc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drc.h; sourceTree = "<group>"; };
+		C60D003F1B3E4ED700C7D944 /* mcp23008.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp23008.h; sourceTree = "<group>"; };
+		C60D00401B3E4ED700C7D944 /* mcp23016.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp23016.h; sourceTree = "<group>"; };
+		C60D00411B3E4ED700C7D944 /* mcp23016reg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp23016reg.h; sourceTree = "<group>"; };
+		C60D00421B3E4ED700C7D944 /* mcp23017.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp23017.h; sourceTree = "<group>"; };
+		C60D00431B3E4ED700C7D944 /* mcp23s08.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp23s08.h; sourceTree = "<group>"; };
+		C60D00441B3E4ED700C7D944 /* mcp23s17.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp23s17.h; sourceTree = "<group>"; };
+		C60D00451B3E4ED700C7D944 /* mcp23x08.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp23x08.h; sourceTree = "<group>"; };
+		C60D00461B3E4ED700C7D944 /* mcp23x0817.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp23x0817.h; sourceTree = "<group>"; };
+		C60D00471B3E4ED700C7D944 /* mcp3002.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp3002.h; sourceTree = "<group>"; };
+		C60D00481B3E4ED700C7D944 /* mcp3004.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp3004.h; sourceTree = "<group>"; };
+		C60D00491B3E4ED700C7D944 /* mcp3422.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp3422.h; sourceTree = "<group>"; };
+		C60D004A1B3E4ED700C7D944 /* mcp4802.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mcp4802.h; sourceTree = "<group>"; };
+		C60D004B1B3E4ED700C7D944 /* pcf8574.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcf8574.h; sourceTree = "<group>"; };
+		C60D004C1B3E4ED700C7D944 /* pcf8591.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pcf8591.h; sourceTree = "<group>"; };
+		C60D004D1B3E4ED700C7D944 /* softPwm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = softPwm.h; sourceTree = "<group>"; };
+		C60D004E1B3E4ED700C7D944 /* softServo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = softServo.h; sourceTree = "<group>"; };
+		C60D004F1B3E4ED700C7D944 /* softTone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = softTone.h; sourceTree = "<group>"; };
+		C60D00501B3E4ED700C7D944 /* sr595.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sr595.h; sourceTree = "<group>"; };
+		C60D00511B3E4ED700C7D944 /* wiringPi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wiringPi.h; sourceTree = "<group>"; };
+		C60D00521B3E4ED700C7D944 /* wiringPiI2C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wiringPiI2C.h; sourceTree = "<group>"; };
+		C60D00531B3E4ED700C7D944 /* wiringPiSPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wiringPiSPI.h; sourceTree = "<group>"; };
+		C60D00541B3E4ED700C7D944 /* wiringSerial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wiringSerial.h; sourceTree = "<group>"; };
+		C60D00551B3E4ED700C7D944 /* wiringShift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wiringShift.h; sourceTree = "<group>"; };
+		C60D00571B3E4ED700C7D944 /* libwiringPi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwiringPi.a; sourceTree = "<group>"; };
+		C60D00581B3E4ED700C7D944 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C60D005A1B3E4ED700C7D944 /* ofxWiringPi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxWiringPi.h; sourceTree = "<group>"; };
 		C627964F1B1C4DE200487606 /* fontPointer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fontPointer.cpp; sourceTree = "<group>"; };
 		C62796501B1C4DE200487606 /* fontPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fontPointer.h; sourceTree = "<group>"; };
 		C62796521B1C52AF00487606 /* system03.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = system03.cpp; sourceTree = "<group>"; };
@@ -118,9 +143,6 @@
 		C627966D1B1C534C00487606 /* ofxKsmrStepManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxKsmrStepManager.h; sourceTree = "<group>"; };
 		C627966E1B1C534C00487606 /* virtualSteppingMotor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = virtualSteppingMotor.cpp; sourceTree = "<group>"; };
 		C627966F1B1C534C00487606 /* virtualSteppingMotor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = virtualSteppingMotor.h; sourceTree = "<group>"; };
-		C62796791B1C5A5500487606 /* ofxKsmrRPiStepManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxKsmrRPiStepManager.cpp; sourceTree = "<group>"; };
-		C627967A1B1C5A5500487606 /* ofxKsmrRPiStepManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxKsmrRPiStepManager.h; sourceTree = "<group>"; };
-		C65AB8181B1ED71000546873 /* ofxRPiGPIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxRPiGPIO.h; path = libRasp/ofxRPiGPIO.h; sourceTree = "<group>"; };
 		C6937888E126BADC8777423B /* OscTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscTypes.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h; sourceTree = SOURCE_ROOT; };
 		C6BD0C261B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxKsmrRPiToL6470.cpp; path = libRasp/ofxKsmrRPiToL6470.cpp; sourceTree = "<group>"; };
 		C6BD0C271B3A949000DDAE0D /* ofxKsmrRPiToL6470.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxKsmrRPiToL6470.h; path = libRasp/ofxKsmrRPiToL6470.h; sourceTree = "<group>"; };
@@ -170,6 +192,7 @@
 				E45BE9810E8CC7DD009D7055 /* CoreServices.framework in Frameworks */,
 				E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */,
 				E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */,
+				C60D005D1B3E4ED700C7D944 /* libwiringPi.a in Frameworks */,
 				E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */,
 				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
 				E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */,
@@ -227,6 +250,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				C60D00371B3E4ED700C7D944 /* ofxWiringPi */,
 				C62796551B1C534C00487606 /* ofxKsmrAgileEye */,
 				C62796581B1C534C00487606 /* ofxKsmrStepManager */,
 				E6053AB7FEC63D5F83825B88 /* ofxOsc */,
@@ -280,6 +304,65 @@
 				9F7986DC4EB05E75FCE2C777 /* ofxOscSender.h */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		C60D00371B3E4ED700C7D944 /* ofxWiringPi */ = {
+			isa = PBXGroup;
+			children = (
+				C60D003D1B3E4ED700C7D944 /* include */,
+				C60D00561B3E4ED700C7D944 /* lib */,
+				C60D00581B3E4ED700C7D944 /* README.md */,
+				C60D00591B3E4ED700C7D944 /* src */,
+			);
+			name = ofxWiringPi;
+			path = addons/ofxWiringPi;
+			sourceTree = "<group>";
+		};
+		C60D003D1B3E4ED700C7D944 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				C60D003E1B3E4ED700C7D944 /* drc.h */,
+				C60D003F1B3E4ED700C7D944 /* mcp23008.h */,
+				C60D00401B3E4ED700C7D944 /* mcp23016.h */,
+				C60D00411B3E4ED700C7D944 /* mcp23016reg.h */,
+				C60D00421B3E4ED700C7D944 /* mcp23017.h */,
+				C60D00431B3E4ED700C7D944 /* mcp23s08.h */,
+				C60D00441B3E4ED700C7D944 /* mcp23s17.h */,
+				C60D00451B3E4ED700C7D944 /* mcp23x08.h */,
+				C60D00461B3E4ED700C7D944 /* mcp23x0817.h */,
+				C60D00471B3E4ED700C7D944 /* mcp3002.h */,
+				C60D00481B3E4ED700C7D944 /* mcp3004.h */,
+				C60D00491B3E4ED700C7D944 /* mcp3422.h */,
+				C60D004A1B3E4ED700C7D944 /* mcp4802.h */,
+				C60D004B1B3E4ED700C7D944 /* pcf8574.h */,
+				C60D004C1B3E4ED700C7D944 /* pcf8591.h */,
+				C60D004D1B3E4ED700C7D944 /* softPwm.h */,
+				C60D004E1B3E4ED700C7D944 /* softServo.h */,
+				C60D004F1B3E4ED700C7D944 /* softTone.h */,
+				C60D00501B3E4ED700C7D944 /* sr595.h */,
+				C60D00511B3E4ED700C7D944 /* wiringPi.h */,
+				C60D00521B3E4ED700C7D944 /* wiringPiI2C.h */,
+				C60D00531B3E4ED700C7D944 /* wiringPiSPI.h */,
+				C60D00541B3E4ED700C7D944 /* wiringSerial.h */,
+				C60D00551B3E4ED700C7D944 /* wiringShift.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		C60D00561B3E4ED700C7D944 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				C60D00571B3E4ED700C7D944 /* libwiringPi.a */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		C60D00591B3E4ED700C7D944 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C60D005A1B3E4ED700C7D944 /* ofxWiringPi.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		C62796551B1C534C00487606 /* ofxKsmrAgileEye */ = {
@@ -361,11 +444,6 @@
 				C62796521B1C52AF00487606 /* system03.cpp */,
 				C62796501B1C4DE200487606 /* fontPointer.h */,
 				C627964F1B1C4DE200487606 /* fontPointer.cpp */,
-				C627967A1B1C5A5500487606 /* ofxKsmrRPiStepManager.h */,
-				C62796791B1C5A5500487606 /* ofxKsmrRPiStepManager.cpp */,
-				C65AB8181B1ED71000546873 /* ofxRPiGPIO.h */,
-				C60FC48D1B33CE0100CCDCCD /* raspSPI.h */,
-				C60FC48E1B33CF2E00CCDCCD /* raspSPI.cpp */,
 				C6BD0C271B3A949000DDAE0D /* ofxKsmrRPiToL6470.h */,
 				C6BD0C261B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp */,
 			);
@@ -496,6 +574,7 @@
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
 				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
+				C60D005E1B3E4ED700C7D944 /* README.md in Sources */,
 				4ADB88E2FB52E76A471065DE /* ofxOscParameterSync.cpp in Sources */,
 				C62796541B1C52AF00487606 /* system03.cpp in Sources */,
 				C6BD0C281B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp in Sources */,
@@ -505,9 +584,7 @@
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
 				C62796741B1C534C00487606 /* ofxKsmrStepManager.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
-				C60FC48F1B33CF2E00CCDCCD /* raspSPI.cpp in Sources */,
 				C62796751B1C534C00487606 /* virtualSteppingMotor.cpp in Sources */,
-				C627967B1B1C5A5500487606 /* ofxKsmrRPiStepManager.cpp in Sources */,
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
 				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
 				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
@@ -557,6 +634,7 @@
 					../../../addons/ofxOsc/libs/oscpack/src/ip/win32,
 					../../../addons/ofxOsc/libs/oscpack/src/osc,
 					../../../addons/ofxOsc/src,
+					"\"$(SRCROOT)/addons/ofxWiringPi\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -599,6 +677,7 @@
 					../../../addons/ofxOsc/libs/oscpack/src/ip/win32,
 					../../../addons/ofxOsc/libs/oscpack/src/osc,
 					../../../addons/ofxOsc/src,
+					"\"$(SRCROOT)/addons/ofxWiringPi\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -690,6 +769,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_52)",
+					"$(PROJECT_DIR)/addons/ofxWiringPi/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
@@ -775,6 +855,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_49)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_50)",
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_51)",
+					"$(PROJECT_DIR)/addons/ofxWiringPi/lib",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

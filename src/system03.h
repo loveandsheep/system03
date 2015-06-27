@@ -7,7 +7,7 @@
 #define __agileEyeTest__system03__
 
 #include "ofMain.h"
-#include "ofxKsmrRPiStepManager.h"
+#include "ofxKsmrRPiToL6470.h"
 #include "ofxKsmrAgileEye.h"
 
 class system03{
@@ -21,7 +21,7 @@ public:
 	void				view();
 	
 	ofxKsmrAgileEye		eyes;
-	ofxKsmrStepManager	*motor;
+	ofxKsmrRPiToL6470	motor;
 	
 	int					motor_pos[3];
 	bool				goDefault;

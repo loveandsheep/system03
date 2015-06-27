@@ -3,22 +3,11 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-//	fontPt.setup("font/Curveless.ttf", 0.5, "test");
-//	camera.setDistance(300);
+	fontPt.setup("font/Curveless.ttf", 0.5, "test");
+	camera.setDistance(300);
 	
-//	ofxRPiGPIO::setup();
-//#ifdef USE_GPIO
-//	ofxRPiGPIO::setPinMode(LASER_PIN, GPIO_OUTPUT);
-//#endif
+	sys03.init();
 
-//	sys03.init();
-
-	spi.init();
-	testMotor.setup(true, 1);
-	testMotor.spi = &spi;
-//	testMotor.sendSignal(RPI_L6470_SIG_VOLT_HOLD, 255);
-//	testMotor.sendSignal(RPI_L6470_SIG_VOLT_ACC, 255);
-//	testMotor.sendSignal(RPI_L6470_SIG_ABSPOS, 0);
 }
 
 //--------------------------------------------------------------
@@ -27,8 +16,8 @@ void ofApp::update(){
 
 
 	if (ofGetFrameNum() % 60 == 0){
-		cout << "Send" << endl;
-		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
+//		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
+		sys03.motor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(1000));
 	}
 
 //		testMotor.enableAllMotor();

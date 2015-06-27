@@ -10,8 +10,6 @@
 #define __system03__ofxKsmrRPiStepManager__
 
 #include "ofxKsmrStepManager.h"
-#include "ofxRPiGPIO.h"
-#include "raspSPI.h"
 
 #define RPISTEP_SS 25
 
@@ -40,7 +38,6 @@ public:
 	void spi_send(unsigned char sig);
 	void spi_close();
 	
-	SPI spi;
 };
 
 

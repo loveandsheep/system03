@@ -11,8 +11,7 @@
 
 #include <stdio.h>
 #include <vector>
-#include <wiringPi.h>
-#include <wiringPiSPI.h>
+#include "ofxWiringPi.h"
 
 #define RPI_L6470_SS_PIN 25
 #define SPI_CHANNEL 0
@@ -49,7 +48,7 @@ public:
 	
 	void setGo_toMult	(int* pos, bool inverse = false);
 
-//protected:
+protected:
 
 	std::vector<bool> motorFlg;
 	int numBits[0xFF];
@@ -60,8 +59,6 @@ public:
 	void sendSpi(unsigned char sig);
 	void spiOpen();
 	void spiClose();
-	
-	SPI* spi;
 	
 };
 
