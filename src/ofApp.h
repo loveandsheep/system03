@@ -13,6 +13,8 @@ public:
 	void setup();
 	void update();
 	void draw();
+	
+	void exit();
 
 	ofEasyCam camera;
 	fontPointer fontPt;

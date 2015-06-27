@@ -17,11 +17,6 @@ void system03::init()
 	motor.setup(true, 3);
 	motor.resetDevice();
 	motor.enableAllMotor();
-//	motor.sendSignal(RPI_L6470_SIG_MAXSPEED, 0x0030);
-//	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x0020);
-//	motor.sendSignal(RPI_L6470_SIG_DECEL, 0x0020);
-//	motor.sendSignal(RPI_L6470_SIG_VOLT_RUN, 0xFF);
-//	motor.sendSignal(RPI_L6470_SIG_STEPMODE, 7);
 	
 	goDefault = false;
 	motor_pos.assign(3, 0);
@@ -33,11 +28,7 @@ void system03::update(const ofVec3f target)
 	eyes.update(target);
 	
 	if (goDefault){//初期位置
-		motor.enableAllMotor();
-		motor_pos[0] = 0;
-		motor_pos[1] = 0;
-		motor_pos[2] = 0;
-		motor.setGo_toMult(motor_pos);
+		sendDefaultPos();
 	}else{
 		motor.enableAllMotor();
 		motor_pos[0] = -eyes.arm[0].rootPan / 1.8f * 128;//1.8何？
@@ -51,6 +42,15 @@ void system03::view()
 {
 	eyes.draw();
 	if (goDefault) ofDrawBitmapString("set default position", 80, 80);
+}
+
+void system03::sendDefaultPos()
+{
+	motor.enableAllMotor();
+	motor_pos[0] = 0;
+	motor_pos[1] = 0;
+	motor_pos[2] = 0;
+	motor.setGo_toMult(motor_pos);
 }
 
 system03::~system03()

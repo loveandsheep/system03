@@ -8,6 +8,10 @@ void ofApp::setup(){
 	
 	sys03.init();
 
+#ifndef TARGET_OSX
+	pinMode(LASER_PIN, OUTPUT);
+	digitalWrite(LASER_PIN, 1);
+#endif
 }
 
 //--------------------------------------------------------------
@@ -43,4 +47,9 @@ void ofApp::draw(){
 	camera.end();
 
 	
+}
+
+void ofApp::exit(){
+	sys03.sendDefaultPos();
+	digitalWrite(LASER_PIN, 0);
 }

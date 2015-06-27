@@ -20,6 +20,8 @@ public:
 	void				update(const ofVec3f target);
 	void				view();
 	
+	void				sendDefaultPos();
+	
 	ofxKsmrAgileEye		eyes;
 	ofxKsmrRPiToL6470	motor;
 	
