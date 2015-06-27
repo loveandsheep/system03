@@ -67,6 +67,7 @@ void ofxKsmrRPiToL6470::sendSinglePacket(unsigned char cmd, int numBit, int val)
 void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit, int *val)
 {
 	int numByte = numBit / 8;
+	if (numBit % 8 > 0) numByte++;
 	
 	std::vector<unsigned char> sigs;
 	sigs.assign((numByte + 1) * motorFlg.size(), 0x0);
