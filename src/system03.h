@@ -23,7 +23,7 @@ public:
 	ofxKsmrAgileEye		eyes;
 	ofxKsmrRPiToL6470	motor;
 	
-	int					motor_pos[3];
+	vector<int>			motor_pos;
 	bool				goDefault;
 	
 };

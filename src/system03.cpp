@@ -17,13 +17,14 @@ void system03::init()
 	motor.setup(true, 3);
 	motor.resetDevice();
 	motor.enableAllMotor();
-//	motor.sendSignal(RPI_L6470_SIG_MAXSPEED, 0x0030);
-//	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x0020);
-//	motor.sendSignal(RPI_L6470_SIG_DECEL, 0x0020);
-//	motor.sendSignal(RPI_L6470_SIG_VOLT_RUN, 0xFF);
-//	motor.sendSignal(RPI_L6470_SIG_STEPMODE, 7);
+	motor.sendSignal(RPI_L6470_SIG_MAXSPEED, 0x0030);
+	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x0020);
+	motor.sendSignal(RPI_L6470_SIG_DECEL, 0x0020);
+	motor.sendSignal(RPI_L6470_SIG_VOLT_RUN, 0xFF);
+	motor.sendSignal(RPI_L6470_SIG_STEPMODE, 7);
 	
-	goDefault = true;
+	goDefault = false;
+	motor_pos.assign(3, 0);
 }
 
 void system03::update(const ofVec3f target)
@@ -31,21 +32,18 @@ void system03::update(const ofVec3f target)
 	
 	eyes.update(target);
 	
-	if (goDefault){
-//		motor->setStepperAll(true);
+	if (goDefault){//初期位置
+		motor.enableAllMotor();
 		motor_pos[0] = 0;
 		motor_pos[1] = 0;
 		motor_pos[2] = 0;
-		
-//		motor->multi_go_to(motor_pos);
+		motor.setGo_toMult(motor_pos);
 	}else{
-//		motor->setStepperAll(true);
-		
-		motor_pos[0] = -eyes.arm[0].rootPan / 1.8f * 128;
-		motor_pos[1] = -eyes.arm[2].rootPan / 1.8f * 128;
-		motor_pos[2] = -eyes.arm[1].rootPan / 1.8f * 128;
-		
-//		motor->multi_go_to(motor_pos);
+		motor.enableAllMotor();
+		motor_pos[0] = -eyes.arm[0].rootPan / 1.8f * 128;//1.8何？
+		motor_pos[1] = -eyes.arm[1].rootPan / 1.8f * 128;
+		motor_pos[2] = -eyes.arm[2].rootPan / 1.8f * 128;
+		motor.setGo_toMult(motor_pos);
 	}
 }
 

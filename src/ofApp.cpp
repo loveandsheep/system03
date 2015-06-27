@@ -12,9 +12,8 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	fontPt.update();
 
-
+	/* === test ===
 	if (ofGetFrameNum() % 60 == 0){
 		sys03.motor.enableAllMotor();
 		vector<int> mot;
@@ -23,19 +22,11 @@ void ofApp::update(){
 		mot.push_back(ofGetFrameNum() % 3 == 2 ? ofRandom(200 * 128) : 0);
 		sys03.motor.setGo_toMult(mot);
 	}
+	 */
 
-//		testMotor.enableAllMotor();
-//		testMotor.sendSpi('a');
-//		unsigned char t[] = {'a', 'b', 'v'};
-//		testMotor.spi.sendN(t, 3);
-
-//	}
+	fontPt.update();
 	sys03.update(fontPt.getPoint());
-	if (ofGetFrameNum() % 60 == 0) {
-//		sys03.motor->setStepperAll(true);
-//		sys03.motor->go_to(ofRandom(300));
-//		sys03.motor->setStepperAll(false);
-	}
+	
 //	if (ofGetFrameNum() % 60 == 0) ofxRPiGPIO::setPinValue(LASER_PIN, true);
 //	if (ofGetFrameNum() % 60 == 30) ofxRPiGPIO::setPinValue(LASER_PIN, false);
 //	if (ofGetFrameNum() % 60 == 0) printf("Timer cout \n");
