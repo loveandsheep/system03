@@ -44,6 +44,14 @@ void ofxKsmrRPiToL6470::setup(bool callGPIOSetup, int numMotor)
 
 /* Signals */
 
+void ofxKsmrRPiToL6470::resetDevice()
+{
+	enableAllMotor();
+	sendSinglePacket(0x0, 24, 0x0);
+	sendSinglePacket(0xC0, 0, 0x0);
+	disableAllMotor();
+}
+
 void ofxKsmrRPiToL6470::sendSignal(unsigned char cmd, int val)
 {
 	sendSinglePacket(cmd, numBits[cmd], val);

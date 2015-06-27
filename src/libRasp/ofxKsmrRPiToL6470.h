@@ -40,6 +40,7 @@ public:
 	
 	void setup(bool callGPIOSetup, int numMotor);
 
+	void resetDevice();
 	void enableMotor(int index);
 	void disableMotor(int index);
 	void enableAllMotor();

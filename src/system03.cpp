@@ -15,7 +15,7 @@ void system03::init()
 	eyes.setup();
 	
 	motor.setup(true, 3);
-	
+	motor.resetDevice();
 	motor.enableAllMotor();
 	motor.sendSignal(RPI_L6470_SIG_MAXSPEED, 0x0030);
 	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x0020);
