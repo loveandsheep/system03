@@ -17,6 +17,7 @@ void ofApp::update(){
 
 	if (ofGetFrameNum() % 60 == 0){
 //		testMotor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200));
+		sys03.motor.enableAllMotor();
 		sys03.motor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(1000));
 	}
 

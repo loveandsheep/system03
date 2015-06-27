@@ -16,12 +16,13 @@ void system03::init()
 	
 	motor.setup(true, 3);
 	
+	motor.enableAllMotor();
 	motor.sendSignal(RPI_L6470_SIG_MAXSPEED, 0x0030);
 	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x0020);
 	motor.sendSignal(RPI_L6470_SIG_DECEL, 0x0020);
 	motor.sendSignal(RPI_L6470_SIG_VOLT_RUN, 0xFF);
 	motor.sendSignal(RPI_L6470_SIG_STEPMODE, 7);
-
+	
 	goDefault = true;
 }
 
