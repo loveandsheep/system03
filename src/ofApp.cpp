@@ -53,3 +53,9 @@ void ofApp::exit(){
 	sys03.sendDefaultPos();
 	digitalWrite(LASER_PIN, 0);
 }
+
+ofApp::~ofApp()
+{
+	sys03.sendDefaultPos();
+	digitalWrite(LASER_PIN, 0);
+}
