@@ -94,6 +94,9 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit, int *val)
 		}
 	}
 	
+	cout << "Send multiPacl=====" << endl;
+	for (int i = 0;i < sigs.size();i++) cout << sigs[i] << endl;
+	
 	int count = 0;
 	for (int j = 0;j < numByte + 1;j++){
 		
