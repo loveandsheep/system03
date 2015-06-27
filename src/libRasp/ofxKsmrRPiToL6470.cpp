@@ -105,8 +105,8 @@ void ofxKsmrRPiToL6470::spiOpen()
 
 void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 {
-	wiringPiSPIDataRW(SPI_CHANNEL, &sig, 1);
 	std::cout << std::hex << int(sig) << std::endl;
+	wiringPiSPIDataRW(SPI_CHANNEL, &sig, 1);
 	
 }
 
