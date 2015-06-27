@@ -9,6 +9,7 @@
 #ifndef __system03__ofxKsmrRPiToL6470__
 #define __system03__ofxKsmrRPiToL6470__
 
+#include "ofMain.h"
 #include <stdio.h>
 #include <vector>
 #include "ofxWiringPi.h"

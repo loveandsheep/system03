@@ -100,16 +100,20 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit, int *val)
 void ofxKsmrRPiToL6470::spiOpen()
 {
 	digitalWrite(RPI_L6470_SS_PIN, 0);
+	std::cout << "===Open===" << std::endl;
 }
 
 void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 {
 	wiringPiSPIDataRW(SPI_CHANNEL, &sig, 1);
+	std::cout << std::hex << sig << std::endl;
+	
 }
 
 void ofxKsmrRPiToL6470::spiClose()
 {
 	digitalWrite(RPI_L6470_SS_PIN, 1);
+	std::cout << "===Close===" << std::endl;
 }
 
 /* Motor SW */
