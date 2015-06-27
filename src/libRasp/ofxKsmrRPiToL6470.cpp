@@ -90,7 +90,7 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit, int *val)
 	{
 		for (int j = 0;j < motorFlg.size();j++)
 		{
-			unsigned char sendSig = (val[0] >> (8 * i)) & 0xFF;
+			unsigned char sendSig = (val[0] >> (8 * (motorFlg.size() - i - 1))) & 0xFF;
 			
 			sigs[cnt] = motorFlg[j] ? sendSig : 0x00;
 			cnt++;
