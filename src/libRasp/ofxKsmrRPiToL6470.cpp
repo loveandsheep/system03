@@ -59,7 +59,7 @@ void ofxKsmrRPiToL6470::sendSignal(unsigned char cmd, int val)
 
 void ofxKsmrRPiToL6470::setGo_toMult(int *pos, bool inverse)
 {
-	sendMultPacket(inverse ? 0x61 : 0x60, 22, pos);
+//	sendMultPacket(inverse ? 0x61 : 0x60, 22, pos);
 }
 
 /* SPI Sender */
