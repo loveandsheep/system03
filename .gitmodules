@@ -4,3 +4,6 @@
 [submodule "addons/ofxKsmrStepManager"]
 	path = addons/ofxKsmrStepManager
 	url = https://loveandsheep@github.com/loveandsheep/ofxKsmrStepManager.git
+[submodule "addons/ofxWiringPi"]
+	path = addons/ofxWiringPi
+	url = https://github.com/loveandsheep/ofxWiringPi.git
