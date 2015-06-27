@@ -67,7 +67,9 @@ void ofxKsmrRPiToL6470::setGo_toMult(int *pos, bool inverse)
 void ofxKsmrRPiToL6470::sendSinglePacket(unsigned char cmd, int numBit, int val)
 {
 	std::vector<int> vals;
-	vals.assign(motorFlg.size(), val);
+	for (int i = 0;i < motorFlg.size();i++){
+		vals.push_back(val);
+	}
 	
 	sendMultPacket(cmd, numBit, &val);
 }
