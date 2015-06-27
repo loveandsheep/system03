@@ -79,6 +79,11 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit, int *val)
 	int numByte = numBit / 8;
 	if (numBit % 8 > 0) numByte++;
 	
+	for (int i = 0;i < motorFlg.size();i++)
+	{
+		cout << "Values " << i << " :" << val[i] << endl;
+	}
+	
 	std::vector<unsigned char> sigs;
 	for (int i = 0;i < (numByte + 1) * motorFlg.size();i++)
 		sigs.push_back(0x00);
