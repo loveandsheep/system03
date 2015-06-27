@@ -56,7 +56,7 @@ protected:
 	int numBits[0xFF];
 	
 	void sendSinglePacket(unsigned char cmd, int numBit, int val);
-	void sendMultPacket(unsigned char cmd, int numBit, vector<int> const & val);
+	void sendMultPacket(unsigned char cmd, int numBit, vector<int> val);
 	
 	void sendSpi(unsigned char sig);
 	void spiOpen();
