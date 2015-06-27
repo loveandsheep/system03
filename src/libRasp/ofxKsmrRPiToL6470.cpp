@@ -10,6 +10,7 @@
 
 void ofxKsmrRPiToL6470::setup(bool callGPIOSetup, int numMotor)
 {
+#ifndef TARGET_OSX
 	int speed = 10000000;
 	if ((wiringPiSPISetup (SPI_CHANNEL, speed)) < 0) {
 		printf("wiringPiSPISetup error \n");
@@ -21,6 +22,7 @@ void ofxKsmrRPiToL6470::setup(bool callGPIOSetup, int numMotor)
 	}
 	pinMode(RPI_L6470_SS_PIN, OUTPUT);
 	digitalWrite(RPI_L6470_SS_PIN, 1);
+#endif
 	
 	motorFlg.assign(numMotor, false);
 	
@@ -57,9 +59,9 @@ void ofxKsmrRPiToL6470::sendSignal(unsigned char cmd, int val)
 	sendSinglePacket(cmd, numBits[cmd], val);
 }
 
-void ofxKsmrRPiToL6470::setGo_toMult(int *pos, bool inverse)
+void ofxKsmrRPiToL6470::setGo_toMult(vector<int> val, bool inverse)
 {
-//	sendMultPacket(inverse ? 0x61 : 0x60, 22, pos);
+	sendMultPacket(inverse ? 0x61 : 0x60, 22, val);
 }
 
 /* SPI Sender */
@@ -88,7 +90,7 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit,vector<int>
 	for (int i = 0;i < (numByte + 1) * motorFlg.size();i++)
 		sigs.push_back(0x00);
 	
-	for (int i = 0;i < motorFlg.size();i++) sigs[i] = cmd;
+	for (int i = 0;i < motorFlg.size();i++) sigs[i] = motorFlg[i] ? cmd : 0x0;
 	
 	int cnt = motorFlg.size();
 	for (int i = 0;i < numByte;i++)
@@ -117,20 +119,25 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit,vector<int>
 
 void ofxKsmrRPiToL6470::spiOpen()
 {
+#ifndef TARGET_OSX
 	digitalWrite(RPI_L6470_SS_PIN, 0);
+#endif
 	std::cout << "===Open===" << std::endl;
 }
 
 void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 {
 	std::cout << std::hex << int(sig) << std::endl;
+#ifndef TARGET_OSX
 	wiringPiSPIDataRW(SPI_CHANNEL, &sig, 1);
-	
+#endif
 }
 
 void ofxKsmrRPiToL6470::spiClose()
 {
+#ifndef TARGET_OSX
 	digitalWrite(RPI_L6470_SS_PIN, 1);
+#endif
 	std::cout << "===Close===" << std::endl;
 }
 

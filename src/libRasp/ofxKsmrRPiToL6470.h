@@ -48,7 +48,7 @@ public:
 	
 	void sendSignal(unsigned char cmd, int val);
 	
-	void setGo_toMult	(int* pos, bool inverse = false);
+	void setGo_toMult	(vector<int> val, bool inverse = false);
 
 protected:
 
