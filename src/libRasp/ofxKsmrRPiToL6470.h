@@ -60,6 +60,7 @@ protected:
 	void spiOpen();
 	void spiClose();
 	
+	ofxWiringPi wpi;
 };
 
 #endif /* defined(__system03__ofxKsmrRPiToL6470__) */
