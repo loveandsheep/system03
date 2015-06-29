@@ -20,11 +20,11 @@ void system03::init()
 	motor.resetDevice();
 	
 	motor.enableAllMotor();
-//	motor.sendSignal(RPI_L6470_SIG_ABSPOS, 0);
-//	motor.sendSignal(RPI_L6470_SIG_GOTO, 0);
-//	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x5);
-//	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x5);
-//	motor.sendSignal(RPI_L6470_SIG_STEPMODE, 7);
+	motor.sendSignal(RPI_L6470_SIG_ABSPOS, 0);
+	motor.sendSignal(RPI_L6470_SIG_GOTO, 0);
+	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x5);
+	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x5);
+	motor.sendSignal(RPI_L6470_SIG_STEPMODE, 7);
 	
 	goDefault = true;
 	motor_pos.assign(3, 0);
