@@ -72,8 +72,8 @@ void ofApp::draw(){
 }
 
 void ofApp::exit(){
-	sys03.sendDefaultPos();
-	sys03.motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
+//	sys03.sendDefaultPos();
+//	sys03.motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
 
 #ifndef TARGET_OSX
 	digitalWrite(LASER_PIN, 0);
