@@ -18,7 +18,7 @@ void system03::init()
 	motor.resetDevice();
 	motor.enableAllMotor();
 	
-	goDefault = false;
+	goDefault = true;
 	motor_pos.assign(3, 0);
 }
 
