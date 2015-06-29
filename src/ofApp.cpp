@@ -9,6 +9,9 @@ void ofApp::setup(){
 	sys03.init();
 	receiver.setup(54503);
 
+	manual = false;
+	targetPoint.set(0, 0, 0);
+	
 #ifndef TARGET_OSX
 	pinMode(LASER_PIN, OUTPUT);
 	digitalWrite(LASER_PIN, 1);
@@ -18,31 +21,33 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 
-	/* === test ===
-	if (ofGetFrameNum() % 60 == 0){
-		sys03.motor.enableAllMotor();
-		vector<int> mot;
-		mot.push_back(ofGetFrameNum() % 3 == 0 ? ofRandom(200 * 128) : 0);
-		mot.push_back(ofGetFrameNum() % 3 == 1 ? ofRandom(200 * 128) : 0);
-		mot.push_back(ofGetFrameNum() % 3 == 2 ? ofRandom(200 * 128) : 0);
-		sys03.motor.setGo_toMult(mot);
-	}
-	 */
-	
 	while (receiver.hasWaitingMessages())
 	{
 		ofxOscMessage m;
 		receiver.getNextMessage(&m);
 		
-		cout << "OSC received" << endl;
+#ifndef TARGET_OSX
+		if (m.getAddress() == "/system03/gpio")
+			digitalWrite(LASER_PIN, m.getArgAsInt32(0));
+#endif
+		
+		if (m.getAddress() == "/system03/default")
+			sys03.goDefault = m.getArgAsInt32(0);
+		
+		if (m.getAddress() == "/system03/manual")
+			manual = m.getArgAsInt32(0);
+
+		if (m.getAddress() == "/system03/point")
+			targetPoint.set(m.getArgAsFloat(0),
+							m.getArgAsFloat(1),
+							m.getArgAsFloat(2));
+			
 	}
 
 	fontPt.update();
-	sys03.update(fontPt.getPoint());
 	
-//	if (ofGetFrameNum() % 60 == 0) ofxRPiGPIO::setPinValue(LASER_PIN, true);
-//	if (ofGetFrameNum() % 60 == 30) ofxRPiGPIO::setPinValue(LASER_PIN, false);
-//	if (ofGetFrameNum() % 60 == 0) printf("Timer cout \n");
+	if (!manual) targetPoint = fontPt.getPoint();
+	sys03.update(targetPoint);
 }
 
 //--------------------------------------------------------------
@@ -51,7 +56,7 @@ void ofApp::draw(){
 	ofBackground(20);
 	
 	camera.begin();
-	fontPt.drawDebug();
+//	fontPt.drawDebug();
 	sys03.view();
 	camera.end();
 
@@ -60,5 +65,7 @@ void ofApp::draw(){
 
 void ofApp::exit(){
 	sys03.sendDefaultPos();
+#ifndef TARGET_OSX
 	digitalWrite(LASER_PIN, 0);
+#endif
 }

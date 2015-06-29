@@ -20,6 +20,9 @@ public:
 	ofEasyCam		camera;
 	system03		sys03;
 	fontPointer		fontPt;
+	
+	bool			manual;
+	ofVec3f			targetPoint;
 	ofxOscReceiver	receiver;
 
 };
