@@ -25,7 +25,10 @@ void ofApp::setup(){
 void ofApp::update(){
 
 	motor.enableAllMotor();
-	motor.sendSignal(RPI_L6470_SIG_GOTO, ofGetFrameNum() % 30);
+	if (ofGetFrameNum() % 60 == 0)
+	{
+		motor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200 * 128));
+	}
 	
 	while (receiver.hasWaitingMessages())
 	{
