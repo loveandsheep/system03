@@ -25,4 +25,5 @@ public:
 	ofVec3f			targetPoint;
 	ofxOscReceiver	receiver;
 
+	ofxKsmrRPiToL6470 motor;
 };

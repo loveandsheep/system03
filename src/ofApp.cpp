@@ -6,7 +6,7 @@ void ofApp::setup(){
 	fontPt.setup("font/Curveless.ttf", 0.5, "test");
 	camera.setDistance(300);
 	
-	sys03.init();
+//	sys03.init();
 	receiver.setup(54503);
 
 	manual = true;
@@ -16,11 +16,17 @@ void ofApp::setup(){
 	pinMode(LASER_PIN, OUTPUT);
 	digitalWrite(LASER_PIN, 1);
 #endif
+	
+	motor.setup(true, 1);
+	motor.resetDevice();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
+	motor.enableAllMotor();
+	motor.sendSignal(RPI_L6470_SIG_GOTO, ofGetFrameNum() % 30);
+	
 	while (receiver.hasWaitingMessages())
 	{
 		ofxOscMessage m;
@@ -49,7 +55,7 @@ void ofApp::update(){
 	if (!manual) targetPoint = fontPt.getPoint();
 //	sys03.motor.enableAllMotor();
 //	sys03.motor.sendSignal(RPI_L6470_SIG_GOTO, ofGetFrameNum() % 5);
-	sys03.update(targetPoint);
+//	sys03.update(targetPoint);
 }
 
 //--------------------------------------------------------------
@@ -59,7 +65,7 @@ void ofApp::draw(){
 	
 	camera.begin();
 //	fontPt.drawDebug();
-	sys03.view();
+//	sys03.view();
 	camera.end();
 
 	
