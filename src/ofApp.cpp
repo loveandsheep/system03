@@ -6,7 +6,7 @@ void ofApp::setup(){
 	fontPt.setup("font/Curveless.ttf", 0.5, "test");
 	camera.setDistance(300);
 	
-//	sys03.init();
+	sys03.init();
 	receiver.setup(54503);
 
 	manual = true;
@@ -17,18 +17,10 @@ void ofApp::setup(){
 	digitalWrite(LASER_PIN, 1);
 #endif
 	
-	motor.setup(true, 1);
-	motor.resetDevice();
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
-	motor.enableAllMotor();
-	if (ofGetFrameNum() % 60 == 0)
-	{
-		motor.sendSignal(RPI_L6470_SIG_GOTO, ofRandom(200 * 128));
-	}
 	
 	while (receiver.hasWaitingMessages())
 	{
@@ -56,8 +48,8 @@ void ofApp::update(){
 	fontPt.update();
 	
 	if (!manual) targetPoint = fontPt.getPoint();
-//	sys03.motor.enableAllMotor();
-//	sys03.motor.sendSignal(RPI_L6470_SIG_GOTO, ofGetFrameNum() % 5);
+	sys03.motor.enableAllMotor();
+	sys03.motor.sendSignal(RPI_L6470_SIG_GOTO, ofGetFrameNum() % 5);
 //	sys03.update(targetPoint);
 }
 
@@ -67,16 +59,16 @@ void ofApp::draw(){
 	ofBackground(20);
 	
 	camera.begin();
-//	fontPt.drawDebug();
-//	sys03.view();
+	fontPt.drawDebug();
+	sys03.view();
 	camera.end();
 
 	
 }
 
 void ofApp::exit(){
-//	sys03.sendDefaultPos();
-//	sys03.motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
+	sys03.sendDefaultPos();
+	sys03.motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
 
 #ifndef TARGET_OSX
 	digitalWrite(LASER_PIN, 0);
