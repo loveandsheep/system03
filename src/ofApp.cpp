@@ -9,7 +9,7 @@ void ofApp::setup(){
 	sys03.init();
 	receiver.setup(54503);
 
-	manual = false;
+	manual = true;
 	targetPoint.set(0, 0, 0);
 	
 #ifndef TARGET_OSX
