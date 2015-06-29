@@ -47,7 +47,9 @@ void ofApp::update(){
 	fontPt.update();
 	
 	if (!manual) targetPoint = fontPt.getPoint();
-	sys03.update(targetPoint);
+	sys03.motor.enableAllMotor();
+	sys03.motor.sendSignal(RPI_L6470_SIG_GOTO, ofGetFrameNum() % 5);
+//	sys03.update(targetPoint);
 }
 
 //--------------------------------------------------------------
