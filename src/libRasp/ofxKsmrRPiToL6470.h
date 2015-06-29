@@ -34,6 +34,9 @@
 #define RPI_L6470_SIG_RUN_INV		0x51
 #define RPI_L6470_SIG_MOVE			0x40
 #define RPI_L6470_SIG_MOVE_INV		0x41
+#define RPI_L6470_SIG_STOP_SOFT		0xb0
+#define RPI_L6470_SIG_STOP_HARD		0xb8
+
 
 class ofxKsmrRPiToL6470{
 public:
