@@ -129,6 +129,7 @@ void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 #ifndef TARGET_OSX
 	wiringPiSPIDataRW(SPI_CHANNEL, &sig, 1);
 #endif
+	usleep(10000);
 }
 
 void ofxKsmrRPiToL6470::spiClose()
