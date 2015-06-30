@@ -53,6 +53,7 @@ public:
 	
 	void setGo_toMult	(vector<int> val);
 
+	bool verbose;
 protected:
 
 	std::vector<bool> motorFlg;

@@ -43,6 +43,7 @@ void ofxKsmrRPiToL6470::setup(bool callGPIOSetup, int numMotor)
 	numBits[RPI_L6470_SIG_RUN_INV]	= 20;
 	numBits[RPI_L6470_SIG_STOP_HARD]= 0;
 	numBits[RPI_L6470_SIG_STOP_SOFT]= 0;
+	verbose = false;
 	
 }
 
@@ -140,12 +141,12 @@ void ofxKsmrRPiToL6470::spiOpen()
 #ifndef TARGET_OSX
 	digitalWrite(RPI_L6470_SS_PIN, 0);
 #endif
-	std::cout << "===Open===" << std::endl;
+	if (verbose) std::cout << "===Open===" << std::endl;
 }
 
 void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 {
-	std::cout << std::hex << int(sig) << std::endl;
+	if (verbose) std::cout << std::hex << int(sig) << std::endl;
 #ifndef TARGET_OSX
 	wiringPiSPIDataRW(SPI_CHANNEL, &sig, 1);
 #endif
@@ -157,7 +158,7 @@ void ofxKsmrRPiToL6470::spiClose()
 #ifndef TARGET_OSX
 	digitalWrite(RPI_L6470_SS_PIN, 1);
 #endif
-	std::cout << "===Close===" << std::endl;
+	if (verbose) std::cout << "===Close===" << std::endl;
 }
 
 /* Motor SW */
