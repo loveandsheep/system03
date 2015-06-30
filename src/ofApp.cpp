@@ -58,6 +58,7 @@ void ofApp::draw(){
 	ofBackground(20);
 	
 	camera.begin();
+	ofRotateY(180);
 	fontPt.drawDebug();
 	sys03.view();
 	camera.end();
