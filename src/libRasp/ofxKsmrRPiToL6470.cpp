@@ -67,7 +67,7 @@ void ofxKsmrRPiToL6470::setGo_toMult(vector<int> val)
 	for (int i = 0;i < motorFlg.size();i++)
 	{
 		cmds.push_back(0x60);
-		if (val[i] < 0) val[i] = abs(val[i]) + 0x200000;
+//		if (val[i] < 0) val[i] = abs(val[i]) + 0x200000;
 		val[i] = val[i] & 0x3FFFFF;
 	}
 	
@@ -140,12 +140,12 @@ void ofxKsmrRPiToL6470::spiOpen()
 #ifndef TARGET_OSX
 	digitalWrite(RPI_L6470_SS_PIN, 0);
 #endif
-//	std::cout << "===Open===" << std::endl;
+	std::cout << "===Open===" << std::endl;
 }
 
 void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 {
-//	std::cout << std::hex << int(sig) << std::endl;
+	std::cout << std::hex << int(sig) << std::endl;
 #ifndef TARGET_OSX
 	wiringPiSPIDataRW(SPI_CHANNEL, &sig, 1);
 #endif
@@ -157,7 +157,7 @@ void ofxKsmrRPiToL6470::spiClose()
 #ifndef TARGET_OSX
 	digitalWrite(RPI_L6470_SS_PIN, 1);
 #endif
-//	std::cout << "===Close===" << std::endl;
+	std::cout << "===Close===" << std::endl;
 }
 
 /* Motor SW */
