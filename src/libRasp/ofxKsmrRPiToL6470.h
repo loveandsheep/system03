@@ -51,7 +51,7 @@ public:
 	
 	void sendSignal(unsigned char cmd, int val);
 	
-	void setGo_toMult	(vector<int> val, bool inverse = false);
+	void setGo_toMult	(vector<int> val);
 
 protected:
 
@@ -59,7 +59,7 @@ protected:
 	int numBits[0xFF];
 	
 	void sendSinglePacket(unsigned char cmd, int numBit, int val);
-	void sendMultPacket(unsigned char cmd, int numBit, vector<int> val);
+	void sendMultPacket(unsigned char* cmd, int numBit, vector<int> val);
 	
 	void sendSpi(unsigned char sig);
 	void spiOpen();

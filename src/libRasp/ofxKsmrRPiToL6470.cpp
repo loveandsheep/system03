@@ -62,24 +62,33 @@ void ofxKsmrRPiToL6470::sendSignal(unsigned char cmd, int val)
 	sendSinglePacket(cmd, numBits[cmd], val);
 }
 
-void ofxKsmrRPiToL6470::setGo_toMult(vector<int> val, bool inverse)
+void ofxKsmrRPiToL6470::setGo_toMult(vector<int> val)
 {
-	sendMultPacket(inverse ? 0x61 : 0x60, 22, val);
+	std::vector<unsigned char> cmds;
+	for (int i = 0;i < motorFlg.size();i++)
+	{
+		cmds.push_back(val[i] < 0 ? 0x61 : 0x60);
+		val[i] = abs(val[i]);
+	}
+	
+	sendMultPacket(&cmds[0], 22, val);
 }
 
 /* SPI Sender */
 
 void ofxKsmrRPiToL6470::sendSinglePacket(unsigned char cmd, int numBit, int val)
 {
+	std::vector<unsigned char> cmds;
 	std::vector<int> vals;
 	for (int i = 0;i < motorFlg.size();i++){
+		cmds.push_back(cmd);
 		vals.push_back(val);
 	}
 	
-	sendMultPacket(cmd, numBit, vals);
+	sendMultPacket(&cmds[0], numBit, vals);
 }
 
-void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit,vector<int> val)
+void ofxKsmrRPiToL6470::sendMultPacket(unsigned char* cmd, int numBit,vector<int> val)
 {
 	int bitMask = powf(2, numBit) - 1;
 	int numByte = numBit / 8;
@@ -89,7 +98,7 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit,vector<int>
 	for (int i = 0;i < (numByte + 1) * motorFlg.size();i++)
 		sigs.push_back(0x00);
 	
-	for (int i = 0;i < motorFlg.size();i++) sigs[i] = motorFlg[i] ? cmd : 0x0;
+	for (int i = 0;i < motorFlg.size();i++) sigs[i] = motorFlg[i] ? cmd[i] : 0x0;
 	
 	int cnt = motorFlg.size();
 	for (int i = 0;i < numByte;i++)
