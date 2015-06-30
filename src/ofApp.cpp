@@ -42,7 +42,10 @@ void ofApp::update(){
 			targetPoint.set(m.getArgAsFloat(0),
 							m.getArgAsFloat(1),
 							m.getArgAsFloat(2));
-			
+		
+		if (m.getAddress() == "/system03/stop")
+			sys03.motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
+		
 	}
 
 	fontPt.update();
