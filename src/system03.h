@@ -28,6 +28,7 @@ public:
 	vector<int>			motor_pos;
 	bool				goDefault;
 	
+	static const int center = 12800;
 };
 
 #endif /* defined(__agileEyeTest__system03__) */
