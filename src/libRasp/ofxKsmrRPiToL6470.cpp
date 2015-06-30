@@ -112,6 +112,16 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit,vector<int>
 		spiClose();
 		
 	}
+	
+	for (int j = 0;j < numByte + 1;j++){
+		
+		spiOpen();
+		for (int i = 0;i < motorFlg.size();i++){
+			sendSpi(0x00);
+		}
+		spiClose();
+		
+	}
 }
 
 void ofxKsmrRPiToL6470::spiOpen()
@@ -128,7 +138,7 @@ void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 #ifndef TARGET_OSX
 	wiringPiSPIDataRW(SPI_CHANNEL, &sig, 1);
 #endif
-	usleep(10000);
+	usleep(1000);
 }
 
 void ofxKsmrRPiToL6470::spiClose()
