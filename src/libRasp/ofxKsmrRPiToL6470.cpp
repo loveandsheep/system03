@@ -37,7 +37,6 @@ void ofxKsmrRPiToL6470::setup(bool callGPIOSetup, int numMotor)
 	numBits[RPI_L6470_SIG_VOLT_DEC] = 8;
 	numBits[RPI_L6470_SIG_STEPMODE] = 8;
 	numBits[RPI_L6470_SIG_GOTO]		= 22;
-	numBits[RPI_L6470_SIG_GOTO_INV] = 22;
 	numBits[RPI_L6470_SIG_MOVE]		= 22;
 	numBits[RPI_L6470_SIG_MOVE_INV] = 22;
 	numBits[RPI_L6470_SIG_RUN]		= 20;
@@ -67,8 +66,9 @@ void ofxKsmrRPiToL6470::setGo_toMult(vector<int> val)
 	std::vector<unsigned char> cmds;
 	for (int i = 0;i < motorFlg.size();i++)
 	{
-		cmds.push_back(val[i] < 0 ? 0x68 : 0x69);
-		val[i] = abs(val[i]);
+		cmds.push_back(0x60);
+		if (val[i] < 0) val[i] = abs(val[i]) + 0x200000;
+		val[i] = val[i] & 0x3FFFFF;
 	}
 	
 	sendMultPacket(&cmds[0], 22, val);
