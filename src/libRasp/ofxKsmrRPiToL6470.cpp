@@ -11,7 +11,7 @@
 void ofxKsmrRPiToL6470::setup(bool callGPIOSetup, int numMotor)
 {
 #ifndef TARGET_OSX
-	int speed = 10000;
+	int speed = 5000;
 	if ((wiringPiSPISetup (SPI_CHANNEL, speed)) < 0) {
 		printf("wiringPiSPISetup error \n");
 	}
