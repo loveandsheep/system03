@@ -67,7 +67,7 @@ void ofxKsmrRPiToL6470::setGo_toMult(vector<int> val)
 	std::vector<unsigned char> cmds;
 	for (int i = 0;i < motorFlg.size();i++)
 	{
-		cmds.push_back(val[i] < 0 ? 0x61 : 0x60);
+		cmds.push_back(val[i] < 0 ? 0x68 : 0x69);
 		val[i] = abs(val[i]);
 	}
 	
