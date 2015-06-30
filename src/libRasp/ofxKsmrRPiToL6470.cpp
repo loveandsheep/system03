@@ -81,6 +81,7 @@ void ofxKsmrRPiToL6470::sendSinglePacket(unsigned char cmd, int numBit, int val)
 
 void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit,vector<int> val)
 {
+	int bitMask = powf(2, numBit) - 1;
 	int numByte = numBit / 8;
 	if (numBit % 8 > 0) numByte++;
 		
@@ -95,7 +96,8 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit,vector<int>
 	{
 		for (int j = 0;j < motorFlg.size();j++)
 		{
-			unsigned char sendSig = (val[j] >> (8 * (numByte - i - 1))) & 0xFF;
+			unsigned char sendSig = (val[j]  >> (8 * (numByte - i - 1))) &
+									(bitMask >> (8 * (numByte - i - 1))) & 0xFF;
 			
 			sigs[cnt] = motorFlg[j] ? sendSig : 0x00;
 			cnt++;
