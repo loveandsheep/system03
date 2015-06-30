@@ -112,12 +112,12 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char cmd, int numBit,vector<int>
 		spiClose();
 		
 	}
-	
+
 	for (int j = 0;j < numByte + 1;j++){
 		
 		spiOpen();
 		for (int i = 0;i < motorFlg.size();i++){
-			sendSpi(0x00);
+			sendSpi(0x00);
 		}
 		spiClose();
 		
