@@ -59,9 +59,9 @@ void system03::view()
 void system03::sendDefaultPos()
 {
 	motor.enableAllMotor();
-	motor_pos[0] = 0;
-	motor_pos[1] = 0;
-	motor_pos[2] = 0;
+	motor_pos[0] = center;
+	motor_pos[1] = center;
+	motor_pos[2] = center;
 	motor.setGo_toMult(motor_pos);
 }
 
