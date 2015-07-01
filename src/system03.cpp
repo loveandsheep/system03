@@ -21,6 +21,7 @@ void system03::init()
 	
 	sleep(1);
 	motor.enableAllMotor();
+	motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
 	motor.sendSignal(RPI_L6470_SIG_VOLT_RUN, 0xFF);
 	motor.sendSignal(RPI_L6470_SIG_VOLT_ACC, 0xFF);
 	motor.sendSignal(RPI_L6470_SIG_VOLT_HOLD, 0xFF);

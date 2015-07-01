@@ -91,6 +91,7 @@ void ofxKsmrRPiToL6470::sendSinglePacket(unsigned char cmd, int numBit, int val)
 
 void ofxKsmrRPiToL6470::sendMultPacket(unsigned char* cmd, int numBit,vector<int> val)
 {
+	verbose = (cmd[0] == RPI_L6470_SIG_ACCEL);
 	int bitMask = powf(2, numBit) - 1;
 	int numByte = numBit / 8;
 	if (numBit % 8 > 0) numByte++;
@@ -150,7 +151,7 @@ void ofxKsmrRPiToL6470::sendSpi(unsigned char sig)
 #ifndef TARGET_OSX
 	wiringPiSPIDataRW(SPI_CHANNEL, &sig, 1);
 #endif
-	usleep(1000);
+	usleep(10);
 }
 
 void ofxKsmrRPiToL6470::spiClose()

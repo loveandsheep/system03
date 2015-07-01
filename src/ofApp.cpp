@@ -49,10 +49,14 @@ void ofApp::update(){
 	}
 
 	fontPt.update();
-	
 	if (!manual) targetPoint = fontPt.getPoint();
-	sys03.motor.enableAllMotor();
-	sys03.update(targetPoint);
+	
+	if (targetPoint != previousPoint)
+	{
+		sys03.motor.enableAllMotor();
+		sys03.update(targetPoint);		
+	}
+	previousPoint = targetPoint;
 }
 
 //--------------------------------------------------------------
@@ -61,7 +65,6 @@ void ofApp::draw(){
 	ofBackground(20);
 	
 	camera.begin();
-	ofRotateY(180);
 	fontPt.drawDebug();
 	sys03.view();
 	camera.end();

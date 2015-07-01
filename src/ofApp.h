@@ -23,5 +23,6 @@ public:
 	
 	bool			manual;
 	ofVec3f			targetPoint;
+	ofVec3f			previousPoint;
 	ofxOscReceiver	receiver;
 };
