@@ -21,7 +21,7 @@ void fontPointer::setup(string path, float _scale, string viewStr)
 void fontPointer::update()
 {
 	
-	if (outlines.size() > 0 && ofGetFrameNum() % 3 == 0){
+	if (outlines.size() > 0 && ofGetFrameNum() % 10 == 0){
 		pathCount++;
 		if (outlines[outlineCount].getVertices().size() <= pathCount)
 		{
