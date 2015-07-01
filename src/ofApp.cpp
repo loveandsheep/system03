@@ -46,6 +46,9 @@ void ofApp::update(){
 		if (m.getAddress() == "/system03/stop")
 			sys03.motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
 		
+		if (m.getAddress() == "/system03/signal")
+			sys03.motor.sendSignal((unsigned char)(m.getArgAsInt32(0)),
+								   m.getArgAsInt32(1));
 	}
 
 	fontPt.update();
