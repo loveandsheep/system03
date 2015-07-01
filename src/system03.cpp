@@ -26,8 +26,8 @@ void system03::init()
 	motor.sendSignal(RPI_L6470_SIG_VOLT_ACC, 0xFF);
 	motor.sendSignal(RPI_L6470_SIG_VOLT_HOLD, 0xFF);
 	motor.sendSignal(RPI_L6470_SIG_MAXSPEED, 0x5);
-	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x05);
-	motor.sendSignal(RPI_L6470_SIG_DECEL, 0x05);
+	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x40);
+	motor.sendSignal(RPI_L6470_SIG_DECEL, 0x40);
 	motor.sendSignal(RPI_L6470_SIG_ABSPOS, center);
 	motor.sendSignal(RPI_L6470_SIG_GOTO, center);
 	motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
