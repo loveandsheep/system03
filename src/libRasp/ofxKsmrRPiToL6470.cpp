@@ -94,7 +94,7 @@ void ofxKsmrRPiToL6470::sendSinglePacket(unsigned char cmd, int numBit, int val)
 
 void ofxKsmrRPiToL6470::sendMultPacket(unsigned char* cmd, int numBit,vector<int> val)
 {
-	verbose = (cmd[0] == RPI_L6470_SIG_ACCEL);
+	verbose = true;// (cmd[0] == RPI_L6470_SIG_ACCEL);
 	int bitMask = powf(2, numBit) - 1;
 	int numByte = numBit / 8;
 	if (numBit % 8 > 0) numByte++;
@@ -124,16 +124,6 @@ void ofxKsmrRPiToL6470::sendMultPacket(unsigned char* cmd, int numBit,vector<int
 		spiOpen();
 		for (int i = 0;i < motorFlg.size();i++){
 			sendSpi(sigs[j * motorFlg.size() + i]);
-		}
-		spiClose();
-		
-	}
-
-	for (int j = 0;j < numByte + 1;j++){
-		
-		spiOpen();
-		for (int i = 0;i < motorFlg.size();i++){
-			sendSpi(0x00);
 		}
 		spiClose();
 		
