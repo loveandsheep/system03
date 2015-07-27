@@ -152,6 +152,9 @@
 		C6AF7FD61B5DE9DB00FCA3DE /* baseGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = baseGeometry.h; path = geometries/baseGeometry.h; sourceTree = "<group>"; };
 		C6BD0C261B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxKsmrRPiToL6470.cpp; path = libRasp/ofxKsmrRPiToL6470.cpp; sourceTree = "<group>"; };
 		C6BD0C271B3A949000DDAE0D /* ofxKsmrRPiToL6470.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxKsmrRPiToL6470.h; path = libRasp/ofxKsmrRPiToL6470.h; sourceTree = "<group>"; };
+		C6C800311B5E683100F938F3 /* geom_triangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = geom_triangle.h; sourceTree = "<group>"; };
+		C6C800321B5E789700F938F3 /* geom_rectangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = geom_rectangle.h; sourceTree = "<group>"; };
+		C6C800331B5E78E600F938F3 /* geom_hexagon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = geom_hexagon.h; sourceTree = "<group>"; };
 		D9BFFBBF4CC43DEE890B3C3E /* OscTypes.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscTypes.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.cpp; sourceTree = SOURCE_ROOT; };
 		DF49D76C45D5DB505A234880 /* ofxOscMessage.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscMessage.cpp; path = ../../../addons/ofxOsc/src/ofxOscMessage.cpp; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -408,6 +411,9 @@
 				C6AF7FD11B5DE9C700FCA3DE /* geomManager.cpp */,
 				C6AF7FD61B5DE9DB00FCA3DE /* baseGeometry.h */,
 				C6AF7FD51B5DE9DB00FCA3DE /* baseGeometry.cpp */,
+				C6C800311B5E683100F938F3 /* geom_triangle.h */,
+				C6C800321B5E789700F938F3 /* geom_rectangle.h */,
+				C6C800331B5E78E600F938F3 /* geom_hexagon.h */,
 			);
 			name = Geom;
 			sourceTree = "<group>";

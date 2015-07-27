@@ -8,7 +8,7 @@ void ofApp::setup(){
 	sys03.init();
 	receiver.setup(54503);
 
-	manual = true;
+	manual = false;
 	
 	geometries.setup();
 	
@@ -31,12 +31,16 @@ void ofApp::update(){
 	{
 		/*描画シーン*/
 		geometries.update();
+		if (ofGetFrameNum() % 5 == 0)
+			targetPoint = geometries.getCurrentScene()->targPos;
 #ifndef TARGET_OSX
 		digitalWrite(LASER_PIN,
 					 geometries.getCurrentScene()->targLaser);
 #endif
 	}
 	
+	/*ポイントの更新*/
+	//TODO: 更新間隔を誰に握らせるか
 	if (targetPoint != previousPoint)
 	{
 		sys03.motor.enableAllMotor();

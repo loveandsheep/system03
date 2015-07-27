@@ -11,6 +11,9 @@
 
 #include "ofMain.h"
 #include "baseGeometry.h"
+#include "geom_triangle.h"
+#include "geom_rectangle.h"
+#include "geom_hexagon.h"
 
 class geomManager{
 public:
@@ -23,6 +26,12 @@ public:
 	bool	getCurrentLaser();
 	
 	ofPtr<baseGeometry> getCurrentScene(){return scenes[curScnIdx];}
+
+	template<class T> void addScene()
+	{
+		ofPtr<baseGeometry> sc = ofPtr<baseGeometry>(new T);
+		scenes.push_back(sc);
+	}
 	
 protected:
 	

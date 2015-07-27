@@ -10,9 +10,9 @@
 
 void geomManager::setup()
 {
-	
-	ofPtr<baseGeometry> scn = ofPtr<baseGeometry>(new baseGeometry);
-	scenes.push_back(scn);
+	addScene<geom_triangle>();
+	addScene<geom_rectangle>();
+	addScene<geom_hexagon>();
 	
 	for (auto it : scenes) it->setupBasis();
 	
@@ -21,7 +21,14 @@ void geomManager::setup()
 
 void geomManager::update()
 {
-	scenes[curScnIdx]->updateBasis();
+	ofPtr<baseGeometry> current = scenes[curScnIdx];
+
+	current->updateBasis();
+	if (current->trail_pos == 1.0f)
+	{
+		setScene(ofRandom(100));
+		scenes[curScnIdx]->trail_pos = 0.0;
+	}
 }
 
 ofVec3f geomManager::getCurrentTargpos()

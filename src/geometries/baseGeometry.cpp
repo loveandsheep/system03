@@ -12,14 +12,7 @@ void baseGeometry::setupBasis()
 {
 	targPos.set(0,0,0);
 	
-	path.push_back(ofVec3f(0.0,0.0,0.0));
-	color.push_back(ofFloatColor(0.0));
-
-//	addPath(ofVec3f(-100.0,-100.0,0.0), true);
-//	addPath(ofVec3f(-100.0,100.0,0.0), false);
-//	addPath(ofVec3f(100.0,100.0,0.0), true);
-	
-	trail_speed = 0.01;
+	trail_speed = 0.003;
 	trail_pos = 0.0;
 	
 	setup();
@@ -34,17 +27,20 @@ void baseGeometry::updateBasis()
 void baseGeometry::update()
 {
 	trail_pos += trail_speed;
-	trail_pos = fmodf(trail_pos, 1.0);
+	trail_pos = MIN(1.0,trail_pos);
 	targPos = getInterpolated(trail_pos);
 	targLaser = color[getInterpolateIndex(trail_pos)].r > 0.5;
 }
 
 void baseGeometry::addPath(ofVec3f p, bool laser)
 {
-	path.push_back(ofVec3f(path.back()));
+	if (path.size() > 0)
+	{
+		path.push_back(ofVec3f(path.back()));
+		color.push_back(ofFloatColor(laser ? 1.0 : 0.0));
+	}
+	
 	path.push_back(ofVec3f(p));
-
-	color.push_back(ofFloatColor(laser ? 1.0 : 0.0));
 	color.push_back(ofFloatColor(laser ? 1.0 : 0.0));
 
 	refleshLength();
