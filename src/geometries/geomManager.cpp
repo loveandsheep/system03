@@ -14,7 +14,9 @@ void geomManager::setup()
 	addScene<geom_rectangle>();
 	addScene<geom_hexagon>();
 	
-	for (auto it : scenes) it->setupBasis();
+	for (int i = 0;i < scenes.size();i++){
+		scenes[i]->setupBasis();
+	}
 	
 	setScene(0);
 }
