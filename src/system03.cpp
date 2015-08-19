@@ -63,9 +63,9 @@ void system03::update(const ofVec3f target)
 			float pct = spd / float(maxMove);
 			
 			motor.enableMotor(i);
-			motor.sendSignal(RPI_L6470_SIG_ACCEL, base_accel * pct);
-			motor.sendSignal(RPI_L6470_SIG_DECEL, base_decel * pct);
-			motor.sendSignal(RPI_L6470_SIG_MAXSPEED, base_speed * pct);
+			motor.sendSignal(RPI_L6470_SIG_ACCEL, base_accel);
+			motor.sendSignal(RPI_L6470_SIG_DECEL, base_decel);
+			motor.sendSignal(RPI_L6470_SIG_MAXSPEED, base_speed);
 			motor.disableMotor(i);
 		}
 
