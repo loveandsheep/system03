@@ -47,8 +47,6 @@ void system03::update(const ofVec3f target)
 	if (goDefault){//初期位置
 		sendDefaultPos();
 	}else{
-		motor.enableAllMotor();
-		
 		for (int i = 0;i < motor_pos.size();i++)
 			motor_pos_prev[i] = motor_pos[i];
 		
@@ -63,12 +61,13 @@ void system03::update(const ofVec3f target)
 			float pct = spd / float(maxMove);
 			
 			motor.enableMotor(i);
-			motor.sendSignal(RPI_L6470_SIG_ACCEL, base_accel);
-			motor.sendSignal(RPI_L6470_SIG_DECEL, base_decel);
-			motor.sendSignal(RPI_L6470_SIG_MAXSPEED, base_speed);
+			motor.sendSignal(RPI_L6470_SIG_ACCEL, base_accel * pct);
+			motor.sendSignal(RPI_L6470_SIG_DECEL, base_decel * pct);
+			motor.sendSignal(RPI_L6470_SIG_MAXSPEED, base_speed * pct);
 			motor.disableMotor(i);
 		}
 
+		motor.enableAllMotor();
 		motor.setGo_toMult(motor_pos);
 	}
 }
