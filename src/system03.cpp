@@ -28,6 +28,7 @@ void system03::init()
 	motor.sendSignal(RPI_L6470_SIG_ABSPOS, center);
 	motor.sendSignal(RPI_L6470_SIG_GOTO, center);
 	motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
+	motor.sendSignal(RPI_L6470_SIG_STEPMODE, 7);
 	
 	goDefault = true;
 	motor_pos.assign(3, 0);
