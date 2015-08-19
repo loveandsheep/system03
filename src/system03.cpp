@@ -56,17 +56,17 @@ void system03::update(const ofVec3f target)
 		motor_pos[2] = -eyes.arm[0].rootPan / 1.8f * 128 + center;
 		
 		//移動量に応じて速度を調整
-		for (int i = 0;i < motor_pos.size();i++)
-		{
-			int spd = abs(motor_pos[i] - motor_pos_prev[i]);
-			float pct = spd / float(maxMove);
-			
-			motor.enableMotor(i);
-			motor.sendSignal(RPI_L6470_SIG_ACCEL, base_accel * pct + 1);
-			motor.sendSignal(RPI_L6470_SIG_DECEL, base_decel * pct + 1);
-			motor.sendSignal(RPI_L6470_SIG_MAXSPEED, base_speed * pct + 1);
-			motor.disableMotor(i);
-		}
+//		for (int i = 0;i < motor_pos.size();i++)
+//		{
+//			int spd = abs(motor_pos[i] - motor_pos_prev[i]);
+//			float pct = spd / float(maxMove);
+//			
+//			motor.enableMotor(i);
+//			motor.sendSignal(RPI_L6470_SIG_ACCEL, base_accel * pct + 1);
+//			motor.sendSignal(RPI_L6470_SIG_DECEL, base_decel * pct + 1);
+//			motor.sendSignal(RPI_L6470_SIG_MAXSPEED, base_speed * pct + 1);
+//			motor.disableMotor(i);
+//		}
 
 		motor.enableAllMotor();
 		motor.setGo_toMult(motor_pos);
