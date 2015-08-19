@@ -25,7 +25,14 @@ public:
 	ofxKsmrAgileEye		eyes;
 	ofxKsmrRPiToL6470	motor;
 	
+	vector<int>			motor_pos_prev;
 	vector<int>			motor_pos;
+	
+	int					base_accel;
+	int					base_decel;
+	int					base_speed;
+	int					maxMove;
+	
 	bool				goDefault;
 	
 	static const int center = 12800;

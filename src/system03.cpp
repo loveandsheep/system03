@@ -31,6 +31,12 @@ void system03::init()
 	
 	goDefault = true;
 	motor_pos.assign(3, 0);
+	motor_pos_prev.assign(3, 0);
+	
+	base_accel = 10;
+	base_decel = 10;
+	base_speed = 40;
+	maxMove = 45;
 }
 
 void system03::update(const ofVec3f target)
@@ -42,9 +48,27 @@ void system03::update(const ofVec3f target)
 		sendDefaultPos();
 	}else{
 		motor.enableAllMotor();
-		motor_pos[0] = -eyes.arm[2].rootPan / 1.8f * 128 + center;
+		
+		for (int i = 0;i < motor_pos.size();i++)
+			motor_pos_prev[i] = motor_pos[i];
+		
+		motor_pos[0] = -eyes.arm[0].rootPan / 1.8f * 128 + center;
 		motor_pos[1] = -eyes.arm[1].rootPan / 1.8f * 128 + center;
-		motor_pos[2] = -eyes.arm[0].rootPan / 1.8f * 128 + center;
+		motor_pos[2] = -eyes.arm[2].rootPan / 1.8f * 128 + center;
+		
+		//移動量に応じて速度を調整
+		for (int i = 0;i < motor_pos.size();i++)
+		{
+			int spd = abs(motor_pos[i] - motor_pos_prev[i]);
+			float pct = spd / float(maxMove);
+			
+			motor.enableMotor(i);
+			motor.sendSignal(RPI_L6470_SIG_ACCEL, base_accel * pct);
+			motor.sendSignal(RPI_L6470_SIG_DECEL, base_decel * pct);
+			motor.sendSignal(RPI_L6470_SIG_MAXSPEED, base_speed * pct);
+			motor.disableMotor(i);
+		}
+
 		motor.setGo_toMult(motor_pos);
 	}
 }
