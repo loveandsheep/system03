@@ -2,11 +2,6 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
-#ifndef TARGET_OSX
-	pinMode(LASER_PIN, OUTPUT);
-	digitalWrite(LASER_PIN, true);
-#endif
 	
 	camera.setDistance(300);
 	receiver.setup(54503);
@@ -21,6 +16,7 @@ void ofApp::setup(){
 	console.pointPtr = &pointer;
 	console.sysPtr = &sys03;
 	console.init();
+
 }
 
 //--------------------------------------------------------------
@@ -38,10 +34,6 @@ void ofApp::update(){
 //		sys03.setLaser()
 		
 	}
-
-#ifndef TARGET_OSX
-	digitalWrite(LASER_PIN, true);
-#endif
 
 	/*ポイントの更新*/
 	//TODO: 更新間隔を誰に握らせるか

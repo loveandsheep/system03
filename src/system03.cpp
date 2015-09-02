@@ -17,6 +17,11 @@ void system03::init()
 	motor.setup(true, 3);
 	motor.resetDevice();
 	
+#ifndef TARGET_OSX
+	pinMode(LASER_PIN, OUTPUT);
+	digitalWrite(LASER_PIN, true);
+#endif
+	
 	sleep(1);
 	motor.enableAllMotor();
 	motor.sendSignal(RPI_L6470_SIG_ACCEL, 0x10);
