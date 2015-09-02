@@ -5,6 +5,7 @@ void ofApp::setup(){
 
 #ifndef TARGET_OSX
 	pinMode(LASER_PIN, OUTPUT);
+	digitalWrite(LASER_PIN, true);
 #endif
 	
 	camera.setDistance(300);
@@ -35,6 +36,7 @@ void ofApp::update(){
 		/*描画シーン*/
 		targetPoint = pointer.target;
 //		sys03.setLaser()
+		
 	}
 	
 	/*ポイントの更新*/
