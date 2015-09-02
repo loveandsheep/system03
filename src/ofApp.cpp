@@ -3,22 +3,23 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-	camera.setDistance(300);
-	
-	sys03.init();
-	receiver.setup(54503);
-
-	manual = false;
-	
-	geometries.setup();
-	
-	targetPoint.set(0, 0, 0);
-	
 #ifndef TARGET_OSX
 	pinMode(LASER_PIN, OUTPUT);
-	digitalWrite(LASER_PIN, 1);
 #endif
-
+	
+	camera.setDistance(300);
+	receiver.setup(54503);
+	targetPoint.set(0, 0, 0);
+	pointer.init();
+	
+	sys03.init();
+	sys03.setLaser(true);
+	
+	manual = false;
+	
+	console.pointPtr = &pointer;
+	console.sysPtr = &sys03;
+	console.init();
 }
 
 //--------------------------------------------------------------
@@ -26,17 +27,14 @@ void ofApp::update(){
 	
 	
 	oscManage();
-
+	pointer.update();
+	console.update();
+	
 	if (!manual)
 	{
 		/*描画シーン*/
-		geometries.update();
-		if (ofGetFrameNum() % 5 == 0)
-			targetPoint = geometries.getCurrentScene()->targPos;
-#ifndef TARGET_OSX
-		digitalWrite(LASER_PIN,
-					 geometries.getCurrentScene()->targLaser);
-#endif
+		targetPoint = pointer.target;
+//		sys03.setLaser()
 	}
 	
 	/*ポイントの更新*/
@@ -46,6 +44,7 @@ void ofApp::update(){
 		sys03.motor.enableAllMotor();
 		sys03.update(targetPoint);		
 	}
+	
 	previousPoint = targetPoint;
 }
 
@@ -53,23 +52,22 @@ void ofApp::update(){
 void ofApp::draw(){
 
 	ofBackground(20);
-	if (geometries.getCurrentScene()->targLaser) ofBackground(0, 0, 50);
+	console.view();
 	
 	camera.begin();
-	geometries.getCurrentScene()->drawPath();
-	
-	sys03.view();
+	{
+		sys03.view();
+	}
 	camera.end();
 	
+	console.buffer.draw(0, 0);
 }
 
-void ofApp::exit(){
+void ofApp::exit()
+{
 	sys03.sendDefaultPos();
 	sys03.motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
-
-#ifndef TARGET_OSX
-	digitalWrite(LASER_PIN, 0);
-#endif
+	sys03.setLaser(false);
 }
 
 void ofApp::oscManage()
@@ -79,10 +77,8 @@ void ofApp::oscManage()
 		ofxOscMessage m;
 		receiver.getNextMessage(&m);
 		
-#ifndef TARGET_OSX
 		if (m.getAddress() == "/system03/gpio")
-			digitalWrite(LASER_PIN, m.getArgAsInt32(0));
-#endif
+			sys03.setLaser(m.getArgAsInt32(0));
 		
 		if (m.getAddress() == "/system03/default")
 			sys03.goDefault = m.getArgAsInt32(0);

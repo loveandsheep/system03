@@ -21,6 +21,7 @@ public:
 	void				view();
 	
 	void				sendDefaultPos();
+	void				setLaser(bool b);
 	
 	ofxKsmrAgileEye		eyes;
 	ofxKsmrRPiToL6470	motor;

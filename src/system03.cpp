@@ -32,7 +32,7 @@ void system03::init()
 	motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
 	motor.sendSignal(RPI_L6470_SIG_STEPMODE, 7);
 	
-	goDefault = true;
+	goDefault = false;
 	motor_pos.assign(3, 0);
 	motor_pos_prev.assign(3, 0);
 	
@@ -88,6 +88,13 @@ void system03::sendDefaultPos()
 	motor_pos[1] = center;
 	motor_pos[2] = center;
 	motor.setGo_toMult(motor_pos);
+}
+
+void system03::setLaser(bool b)
+{
+#ifndef TARGET_OSX
+	digitalWrite(LASER_PIN, b);
+#endif
 }
 
 system03::~system03()

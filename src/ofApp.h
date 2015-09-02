@@ -6,7 +6,8 @@
 #include "fontPointer.h"
 #include "ofxKsmrRPiToL6470.h"
 
-#include "geomManager.h"
+#include "Pointer.h"
+#include "Console.h"
 
 #define LASER_PIN 17
 
@@ -28,5 +29,6 @@ public:
 	ofVec3f			previousPoint;
 	ofxOscReceiver	receiver;
 
-	geomManager		geometries;
+	Pointer pointer;
+	Console console;
 };
