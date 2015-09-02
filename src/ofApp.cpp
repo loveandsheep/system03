@@ -38,7 +38,11 @@ void ofApp::update(){
 //		sys03.setLaser()
 		
 	}
-	
+
+#ifndef TARGET_OSX
+	digitalWrite(LASER_PIN, true);
+#endif
+
 	/*ポイントの更新*/
 	//TODO: 更新間隔を誰に握らせるか
 	if (targetPoint != previousPoint)
