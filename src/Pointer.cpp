@@ -10,16 +10,15 @@
 
 void Pointer::init()
 {
-	Gridscale = 100.0;
+	Gridscale = 30.0;
 	initPatterns();
 }
 
 void Pointer::update()
 {
-	int pattern_id = 3;
+	int pattern_id = 2;
 	target = patterns[pattern_id].pos[ofGetFrameNum()/20 %
 									  patterns[pattern_id].pos.size()] * Gridscale;
-	
 }
 
 void Pointer::view()

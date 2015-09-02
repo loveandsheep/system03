@@ -413,8 +413,8 @@
 		C634B9A81B902DEE00ABF758 /* Pointer */ = {
 			isa = PBXGroup;
 			children = (
-				C634B9A91B902DFA00ABF758 /* Pointer.cpp */,
 				C634B9AA1B902DFA00ABF758 /* Pointer.h */,
+				C634B9A91B902DFA00ABF758 /* Pointer.cpp */,
 			);
 			name = Pointer;
 			sourceTree = "<group>";
