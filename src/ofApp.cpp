@@ -58,7 +58,12 @@ void ofApp::draw(){
 	}
 	camera.end();
 	
+	ofPushMatrix();
+	ofTranslate(0, ofGetHeight());
+	ofRotateZ(-90);
+	ofTranslate(0, 0);
 	console.buffer.draw(0, 0);
+	ofPopMatrix();
 }
 
 void ofApp::exit()
