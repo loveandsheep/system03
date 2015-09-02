@@ -26,7 +26,9 @@ void Console::view()
 	ofDrawBitmapString(ofToString(sysPtr->motor_pos[0]), 30,30);
 	ofSetColor(255, 0, 0);
 	ofNoFill();
-	ofRect(1, 1, 479, 799);
+	ofRect(1, 1,
+		   470+(ofGetFrameNum()/20)%10,
+		   790+(ofGetFrameNum()/20)%10);
 	ofFill();
 	
 	for (int i = 0;i < 480;i+=10)
