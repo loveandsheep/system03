@@ -62,7 +62,7 @@ void ofApp::draw(){
 	ofTranslate(0, ofGetHeight());
 	ofRotateZ(-90);
 	ofTranslate(0, 0);
-	console.buffer.draw(0, 0);
+	console.buffer.draw(ofGetHeight() - 480, 0);
 	ofPopMatrix();
 }
 
