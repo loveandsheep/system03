@@ -29,6 +29,19 @@ void Console::view()
 	ofRect(1, 1, 599, 799);
 	ofFill();
 	
+	for (int i = 0;i < 600;i+=10)
+	{
+		ofSetColor(255, 0, 0);
+		if (i % 100 == 0) ofSetColor(255, 255, 0);
+		ofLine(i, 0, i, 50);
+	}
+	for (int j = 0;j < 800;j+=10)
+	{
+		ofSetColor(255, 0, 0);
+		if (j % 100 == 0) ofSetColor(255, 255, 0);
+		ofLine(0, j, 50, j);
+	}
+	
 	buffer.end();
 	
 	ofSetColor(255);
