@@ -18,7 +18,9 @@ void system03::init()
 	
 #ifndef TARGET_OSX
 	pinMode(LASER_PIN, OUTPUT);
+	pinMode(LIGHT_PIN, OUTPUT);
 	digitalWrite(LASER_PIN, true);
+	digitalWrite(LIGHT_PIN, true);
 #endif
 	
 	sleep(1);

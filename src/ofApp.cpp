@@ -72,6 +72,9 @@ void ofApp::exit()
 	sleep(1);
 	sys03.sendDefaultPos();
 	sys03.setLaser(false);
+#ifndef TARGET_OSX
+	digitalWrite(LIGHT_PIN, false);
+#endif
 }
 
 void ofApp::oscManage()

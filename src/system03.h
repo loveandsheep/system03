@@ -11,6 +11,8 @@
 #include "ofxKsmrAgileEye.h"
 
 #define LASER_PIN 17
+#define LIGHT_PIN 21
+
 
 class system03{
 	
