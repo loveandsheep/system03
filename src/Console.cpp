@@ -10,7 +10,7 @@
 
 void Console::init()
 {
-	buffer.allocate(478, 798);
+	buffer.allocate(480, 800);
 }
 
 void Console::update()
@@ -26,7 +26,7 @@ void Console::view()
 	ofDrawBitmapString(ofToString(sysPtr->motor_pos[0]), 30,30);
 	ofSetColor(255, 0, 0);
 	ofNoFill();
-	ofRect(0, 0,478,798);
+	ofRect(1, 1,478,798);
 	ofFill();
 	
 	for (int i = 0;i < 480;i+=10)
