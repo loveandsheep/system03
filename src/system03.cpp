@@ -50,7 +50,7 @@ void system03::update(const ofVec3f target)
 	if (goDefault){//初期位置
 		sendDefaultPos();
 	}else{
-		for (int i = 0;i < motor_pos.size();i++)
+		for (int i = 0;i < int(motor_pos.size());i++)
 			motor_pos_prev[i] = motor_pos[i];
 		
 		motor_pos[0] = -eyes.arm[1].rootPan / 1.8f * 128 + center;

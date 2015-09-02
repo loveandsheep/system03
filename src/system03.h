@@ -10,6 +10,8 @@
 #include "ofxKsmrRPiToL6470.h"
 #include "ofxKsmrAgileEye.h"
 
+#define LASER_PIN 17
+
 class system03{
 	
 public:

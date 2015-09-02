@@ -9,8 +9,6 @@
 #include "Pointer.h"
 #include "Console.h"
 
-#define LASER_PIN 17
-
 class ofApp : public ofBaseApp{
 
 public:
