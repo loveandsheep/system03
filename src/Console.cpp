@@ -20,7 +20,6 @@ void Console::update()
 
 void Console::view()
 {
-	glPushAttrib(GL_ALL_ATTRIB_BITS);
 	buffer.begin();
 	ofClear(0, 0, 0, 255);
 	
@@ -31,5 +30,6 @@ void Console::view()
 	ofFill();
 	
 	buffer.end();
-	glPopAttrib();
+	
+	ofSetColor(255);
 }
