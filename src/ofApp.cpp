@@ -63,8 +63,9 @@ void ofApp::draw(){
 
 void ofApp::exit()
 {
-	sys03.sendDefaultPos();
 	sys03.motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
+	sleep(1);
+	sys03.sendDefaultPos();
 	sys03.setLaser(false);
 }
 

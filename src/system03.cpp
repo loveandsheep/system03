@@ -15,7 +15,6 @@ void system03::init()
 	eyes.setup();
 	
 	motor.setup(true, 3);
-	motor.resetDevice();
 	
 #ifndef TARGET_OSX
 	pinMode(LASER_PIN, OUTPUT);
