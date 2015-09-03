@@ -31,7 +31,7 @@ void ofApp::update(){
 	{
 		/*描画シーン*/
 		targetPoint = pointer.target;
-//		sys03.setLaser()
+		sys03.setLaser(pointer.getCurrentLaser());
 		
 	}
 
@@ -57,13 +57,18 @@ void ofApp::draw(){
 		sys03.view();
 	}
 	camera.end();
-	
+
+#ifdef TARGET_OSX
+	console.buffer.draw(0, 0);
+#else
 	ofPushMatrix();
 	ofTranslate(0, ofGetHeight());
 	ofRotateZ(-90);
 	ofTranslate(0, 0);
 	console.buffer.draw(ofGetHeight() - 480, 0);
 	ofPopMatrix();
+#endif
+
 }
 
 void ofApp::exit()

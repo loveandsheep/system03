@@ -39,6 +39,7 @@ public:
 	int					maxMove;
 	
 	bool				goDefault;
+	bool				laserState;
 	
 	static const int center = 12800;
 };

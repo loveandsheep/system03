@@ -101,6 +101,7 @@ void system03::setLaser(bool b)
 #ifndef TARGET_OSX
 	digitalWrite(LASER_PIN, b);
 #endif
+	laserState = b;
 }
 
 system03::~system03()

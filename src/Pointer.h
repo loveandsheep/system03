@@ -25,9 +25,15 @@ public:
 	void update();
 	void view();
 	
-	ofVec3f target;
+	bool getCurrentLaser();
 	
-	float Gridscale;
+	ofVec3f target;
+	bool	laserState;
+	
+	int		pattern_id;
+	int		posIndex;
+	int		loopCounter;
+	float	Gridscale;
 	
 	vector<gridPattern> patterns;
 };

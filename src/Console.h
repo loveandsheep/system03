@@ -13,16 +13,40 @@
 #include "system03.h"
 #include "Pointer.h"
 
+#include "ofxObjLoader.h"
+
 class Console{
 public:
 	void init();
 	void update();
 	void view();
 	
+	/* Section */
+	void drawUnit();
+	void drawAnglePattern();
+	void drawMotorGraph();
+
+	/* Modules */
+	void drawCode(float v);
+	void drawMotorAngle(float angle);
+	
 	ofFbo buffer;
 	
+	ofEasyCam camera;
 	Pointer *pointPtr;
 	system03 *sysPtr;
+	
+	float motor_smooth[3];
+	
+	deque<float> motorlog[3];
+	
+	ofNode unitNode;
+	ofNode unitLinkNode[3];
+	ofMesh unitMesh;
+	
+	ofQuaternion sphericalLinear(ofQuaternion q1,
+								 ofQuaternion q2,
+								 float t);
 };
 
 #endif /* defined(__system03__Console__) */

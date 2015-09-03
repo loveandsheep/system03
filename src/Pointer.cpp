@@ -10,20 +10,47 @@
 
 void Pointer::init()
 {
-	Gridscale = 30.0;
+	Gridscale = 40.0;
 	initPatterns();
+	
+	pattern_id = 5;
+	posIndex = 0;
+	loopCounter = 0;
 }
 
 void Pointer::update()
 {
-	int pattern_id = 2;
-	target = patterns[pattern_id].pos[ofGetFrameNum()/20 %
-									  patterns[pattern_id].pos.size()] * Gridscale;
+	
+	target = patterns[pattern_id].pos[posIndex] * Gridscale;
+	
+	if (ofGetFrameNum() % 50 == 0)
+	{
+		laserState = patterns[pattern_id].pen[posIndex];
+		posIndex++;
+	}
+	
+	if (posIndex >= patterns[pattern_id].pos.size())
+	{
+		loopCounter++;
+		posIndex = 0;
+		
+		if (loopCounter > 10)
+		{
+			pattern_id = int(ofRandom(100)) % patterns.size();
+			posIndex = 0;
+			loopCounter = 0;
+		}
+	}
 }
 
 void Pointer::view()
 {
 	
+}
+
+bool Pointer::getCurrentLaser()
+{
+	return laserState;
 }
 
 void Pointer::initPatterns()
@@ -89,7 +116,7 @@ void Pointer::initPatterns()
 	p_F.pen.push_back(1); p_F.pos.push_back(ofVec2f( 1, 1));
 	p_F.pen.push_back(1); p_F.pos.push_back(ofVec2f( 0, 1));
 	p_F.pen.push_back(1); p_F.pos.push_back(ofVec2f( 0, 0));
-	p_F.pen.push_back(1); p_F.pos.push_back(ofVec2f(-1, 0));
+	p_F.pen.push_back(1); p_F.pos.push_back(ofVec2f( 0,-1));
 	p_F.pen.push_back(1); p_F.pos.push_back(ofVec2f(-1,-1));
 	patterns.push_back(p_F);
 	

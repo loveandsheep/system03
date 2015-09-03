@@ -29,6 +29,9 @@
 		C62796751B1C534C00487606 /* virtualSteppingMotor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C627966E1B1C534C00487606 /* virtualSteppingMotor.cpp */; };
 		C634B9AB1B902DFA00ABF758 /* Pointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C634B9A91B902DFA00ABF758 /* Pointer.cpp */; };
 		C634B9B01B93594D00ABF758 /* Console.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C634B9AE1B93594D00ABF758 /* Console.cpp */; };
+		C634B9BF1B985D2600ABF758 /* glm.c in Sources */ = {isa = PBXBuildFile; fileRef = C634B9B91B985D2600ABF758 /* glm.c */; };
+		C634B9C01B985D2600ABF758 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = C634B9BB1B985D2600ABF758 /* Readme.md */; };
+		C634B9C11B985D2600ABF758 /* ofxObjLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C634B9BD1B985D2600ABF758 /* ofxObjLoader.cpp */; };
 		C6AF7FD31B5DE9C700FCA3DE /* geomManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6AF7FD11B5DE9C700FCA3DE /* geomManager.cpp */; };
 		C6AF7FD71B5DE9DB00FCA3DE /* baseGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6AF7FD51B5DE9DB00FCA3DE /* baseGeometry.cpp */; };
 		C6BD0C281B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C261B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp */; };
@@ -151,6 +154,12 @@
 		C634B9AA1B902DFA00ABF758 /* Pointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pointer.h; sourceTree = "<group>"; };
 		C634B9AE1B93594D00ABF758 /* Console.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Console.cpp; sourceTree = "<group>"; };
 		C634B9AF1B93594D00ABF758 /* Console.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Console.h; sourceTree = "<group>"; };
+		C634B9B71B985D2600ABF758 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		C634B9B91B985D2600ABF758 /* glm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glm.c; sourceTree = "<group>"; };
+		C634B9BA1B985D2600ABF758 /* glm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glm.h; sourceTree = "<group>"; };
+		C634B9BB1B985D2600ABF758 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		C634B9BD1B985D2600ABF758 /* ofxObjLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxObjLoader.cpp; sourceTree = "<group>"; };
+		C634B9BE1B985D2600ABF758 /* ofxObjLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxObjLoader.h; sourceTree = "<group>"; };
 		C6937888E126BADC8777423B /* OscTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscTypes.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h; sourceTree = SOURCE_ROOT; };
 		C6AF7FD11B5DE9C700FCA3DE /* geomManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = geomManager.cpp; path = geometries/geomManager.cpp; sourceTree = "<group>"; };
 		C6AF7FD21B5DE9C700FCA3DE /* geomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = geomManager.h; path = geometries/geomManager.h; sourceTree = "<group>"; };
@@ -265,6 +274,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				C634B9B61B985D2600ABF758 /* ofxObjLoader */,
 				C60D00371B3E4ED700C7D944 /* ofxWiringPi */,
 				C62796551B1C534C00487606 /* ofxKsmrAgileEye */,
 				C62796581B1C534C00487606 /* ofxKsmrStepManager */,
@@ -417,6 +427,36 @@
 				C634B9A91B902DFA00ABF758 /* Pointer.cpp */,
 			);
 			name = Pointer;
+			sourceTree = "<group>";
+		};
+		C634B9B61B985D2600ABF758 /* ofxObjLoader */ = {
+			isa = PBXGroup;
+			children = (
+				C634B9B71B985D2600ABF758 /* .gitignore */,
+				C634B9B81B985D2600ABF758 /* libs */,
+				C634B9BB1B985D2600ABF758 /* Readme.md */,
+				C634B9BC1B985D2600ABF758 /* src */,
+			);
+			name = ofxObjLoader;
+			path = addons/ofxObjLoader;
+			sourceTree = "<group>";
+		};
+		C634B9B81B985D2600ABF758 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				C634B9B91B985D2600ABF758 /* glm.c */,
+				C634B9BA1B985D2600ABF758 /* glm.h */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		C634B9BC1B985D2600ABF758 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C634B9BD1B985D2600ABF758 /* ofxObjLoader.cpp */,
+				C634B9BE1B985D2600ABF758 /* ofxObjLoader.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		C6AF7FD41B5DE9CA00FCA3DE /* Geom */ = {
@@ -615,6 +655,7 @@
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				C634B9B01B93594D00ABF758 /* Console.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				C634B9C11B985D2600ABF758 /* ofxObjLoader.cpp in Sources */,
 				72A929D3561B8232A182ABFC /* ofxOscBundle.cpp in Sources */,
 				5864AD82E20F15536D054EA3 /* ofxOscMessage.cpp in Sources */,
 				C634B9AB1B902DFA00ABF758 /* Pointer.cpp in Sources */,
@@ -623,10 +664,12 @@
 				C62796541B1C52AF00487606 /* system03.cpp in Sources */,
 				C6BD0C281B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp in Sources */,
 				640279EE111671BD026CB013 /* ofxOscReceiver.cpp in Sources */,
+				C634B9BF1B985D2600ABF758 /* glm.c in Sources */,
 				8F5205AEF8861EF234F0651A /* ofxOscSender.cpp in Sources */,
 				C6AF7FD31B5DE9C700FCA3DE /* geomManager.cpp in Sources */,
 				ADE367465D2A8EBAD4C7A8D9 /* IpEndpointName.cpp in Sources */,
 				67FE4C7B15C2F0478C8126C2 /* NetworkingUtils.cpp in Sources */,
+				C634B9C01B985D2600ABF758 /* Readme.md in Sources */,
 				C62796741B1C534C00487606 /* ofxKsmrStepManager.cpp in Sources */,
 				510CAFE035E576A4E1502D52 /* UdpSocket.cpp in Sources */,
 				C62796751B1C534C00487606 /* virtualSteppingMotor.cpp in Sources */,
