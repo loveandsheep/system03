@@ -21,6 +21,8 @@ public:
 	void update();
 	void view();
 	
+	void loadMeshManual();
+	
 	/* Section */
 	void drawUnit();
 	void drawAnglePattern();
