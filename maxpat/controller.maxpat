@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 651.0, 79.0, 742.0, 912.0 ],
+		"rect" : [ 443.0, 79.0, 742.0, 912.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -39,13 +39,14 @@
 		"boxes" : [ 			{
 				"box" : 				{
 					"id" : "obj-58",
+					"linecount" : 2,
 					"maxclass" : "message",
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 347.0, 298.0, 50.0, 22.0 ],
+					"patching_rect" : [ 347.0, 298.0, 50.0, 35.0 ],
 					"style" : "",
-					"text" : "5.5"
+					"text" : "1.289683"
 				}
 
 			}
@@ -56,7 +57,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 509.0, 251.0, 147.0, 22.0 ],
-					"presentation_rect" : [ 509.0, 251.0, 0.0, 0.0 ],
 					"style" : "",
 					"text" : "udpsend 127.0.0.1 54503"
 				}
@@ -70,9 +70,8 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 584.0, 165.0, 107.0, 22.0 ],
-					"presentation_rect" : [ 584.0, 165.0, 0.0, 0.0 ],
 					"style" : "",
-					"text" : "host 192.168.2.17"
+					"text" : "host 192.168.2.19"
 				}
 
 			}

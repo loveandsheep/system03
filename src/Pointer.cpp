@@ -13,7 +13,7 @@ void Pointer::init()
 	Gridscale = 40.0;
 	initPatterns();
 	
-	pattern_id = 5;
+	pattern_id = 0;
 	posIndex = 0;
 	loopCounter = 0;
 }
@@ -34,7 +34,7 @@ void Pointer::update()
 		loopCounter++;
 		posIndex = 0;
 		
-		if (loopCounter > 10)
+		if (loopCounter > 3)
 		{
 			pattern_id = int(ofRandom(100)) % patterns.size();
 			posIndex = 0;

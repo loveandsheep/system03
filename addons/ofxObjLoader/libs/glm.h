@@ -37,7 +37,8 @@
 	#include <GLUT/glut.h>
 #endif
 #ifdef TARGET_LINUX
-	#include <GL/glut.h>
+//	#include <GL/glut.h>
+	#define TARGET_OPENGLES
 #endif
 
 

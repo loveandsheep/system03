@@ -13,7 +13,7 @@ void Console::init()
 	buffer.allocate(480, 800);
 	
 	ofxObjLoader::load("unit.obj", unitMesh);
-	unitNode.setPosition(0, 0, 23);
+	unitNode.setPosition(0, -10, 0);
 
 	unitLinkNode[0].setParent(unitNode);
 	unitLinkNode[1].setParent(unitNode);
@@ -25,10 +25,11 @@ void Console::init()
 
 	
 	camera.setDistance(300);
-	camera.rotateAround(-90, ofVec3f(0.0,1.0,0.0), ofVec3f(0.0, 0.0, 0.0));
+	camera.rotateAround(-135, ofVec3f(0.0,1.0,0.0), ofVec3f(0.0, 0.0, 0.0));
 	camera.lookAt(ofVec3f(0, 0, 0));
 	camera.disableMouseInput();
 	
+	themeColor.setHsb(0.45, 1.0, 1.0);
 }
 
 void Console::update()
@@ -59,47 +60,121 @@ void Console::view()
 	
 	ofClear(0, 0, 0, 255);
 	
+	ofSetColor(30);
+	for (int i = 0;i <= 800;i+=4)
+	{
+//		ofLine(0, i, 480, i);
+	}
+	
 	
 	ofSetColor(255);
 	
-	ofNoFill();
-//	ofRect(1, 1,478,798);
-	ofFill();
-	
 	/* Unit drawing */
-	cout << ofGetMouseX() << "," << ofGetMouseY() << endl;
+	drawPatternUnit();
 	drawUnit();
 	drawAnglePattern();
-	
 	drawMotorGraph();
+
+	/*
+	ofSetColor(255);
+	string info = "Sys03:Console\n";
+	info += "fps - " + ofToString(ofGetFrameRate()) + "\n";
+	info += "laserState - " + string(sysPtr->laserState ? "1\n" : "0\n");
+	info += "patternID - " + ofToString(pointPtr->pattern_id) + "\n";
+	info += "patternIndex - " + ofToString(pointPtr->posIndex) + "\n";
+	info += "tipHeading - " + ofToString(sysPtr->eyes.arm[0].tipNode()->getHeading()) + "\n";
+	ofDrawBitmapString(info, 15, 280);
+	*/
 	
 	buffer.end();
 	
 	ofSetColor(255);
 }
 
+void Console::drawPatternUnit()
+{
+	vector<ofFloatColor> colors;
+	vector<ofVec2f> vertices;
+	gridPattern* currentPt = &pointPtr->patterns[pointPtr->pattern_id];
+	for (int i = 0;i < currentPt->pos.size();i++)
+	{
+		colors.push_back(currentPt->pen[i] ? ofFloatColor(1.0,1.0,1.0,1.0) : ofFloatColor(0.0,0.0,0.0,1.0));
+		colors.push_back(currentPt->pen[i] ? ofFloatColor(1.0,1.0,1.0,1.0) : ofFloatColor(0.0,0.0,0.0,1.0));
+		vertices.push_back(currentPt->pos[i]);
+		vertices.push_back(currentPt->pos[(i+1) % currentPt->pos.size()]);
+	}
+	
+	float sc = 50.0;
+	
+	ofPushMatrix();
+	ofTranslate(366, 700);
+	ofTranslate(currentTarg_smooth * sc);
+	float ll = 1500.0;
+	
+	ofSetColor(themeColor, 128);
+	ofLine(-ll, 0, ll, 0);
+	ofLine(0, -ll, 0, ll);
+	
+	ofTranslate(10, 0);
+	drawCode(currentTarg_smooth.x * pointPtr->Gridscale * 32.1324);
+	ofTranslate(0, 5);
+	drawCode(currentTarg_smooth.y * pointPtr->Gridscale * 32.1324);
+	ofPopMatrix();
+	
+	ofPushMatrix();
+	{
+		ofSetColor(255);
+		ofTranslate(366, 700);
+		
+		glScalef(sc, sc, sc);
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glEnableClientState(GL_COLOR_ARRAY);
+		glVertexPointer(2, GL_FLOAT, 0, &vertices[0]);
+		glColorPointer(4, GL_FLOAT, 0, &colors[0]);
+		glDrawArrays(GL_LINE_LOOP, 0, vertices.size());
+		glDisableClientState(GL_COLOR_ARRAY);
+		glDisableClientState(GL_VERTEX_ARRAY);
+		
+		currentTarg_smooth += (pointPtr->target / pointPtr->Gridscale - currentTarg_smooth) / 2.0;
+	}
+	ofPopMatrix();
+}
+
 void Console::drawMotorGraph()
 {
 	for (int i = 0;i < 3;i++)
 	{
-		motor_smooth[i] += ((sysPtr->motor_pos[i] - 12800) / 20.0 - motor_smooth[i]) / 5.0;
+		motor_smooth[i] += ((sysPtr->motor_pos[i] - 12800) / 15.0 - motor_smooth[i]) / 5.0;
 		
 		ofPushMatrix();
 		ofTranslate(80, 80 + i * 70);
 		drawMotorAngle(motor_smooth[i] + 90);
 		
+		/* Grid line */
 		ofSetColor(100);
 		ofLine(-200, 0, 500, 0);
-		
 		for (int j = -200;j < 500;j+=10)
 			ofLine(j, -2, j, 2);
 		
+		/* Graph */
+		ofSetColor(255);
+		for (int j = 0;j < motorlog[i].size();j++)
+			ofLine(j * 3 + 25, 0, j * 3 + 25, motorlog[i][j]);
+		
+		/* Codes */
 		ofPushMatrix();
-		ofTranslate(-65, -3);
-		drawCode(motor_smooth[i]);
+		{
+			ofTranslate(-65, -3);
+			drawCode(motor_smooth[i]);
+		}
 		ofPopMatrix();
 		
 		ofPopMatrix();
+		
+		motorlog[i].push_front(sin(ofDegToRad(motor_smooth[i])) * 25);
+		while (motorlog[i].size() > 150) {
+			motorlog[i].pop_back();
+		}
 	}
 }
 
@@ -157,7 +232,7 @@ void Console::drawAnglePattern()
 		if (i == 0) ofTranslate(0, 20);
 		ofTranslate(-60, -80 * (i == 2 ? -1.0 : 1.0));
 		
-		ofLine(0, 0, 60, 80 * (i == 2 ? -1.0 : 1.0));
+		ofLine(0, 10 * (i == 2 ? -1.0 : 1.0), 60, 80 * (i == 2 ? -1.0 : 1.0));
 		
 		for (int j = 0;j < 3;j++)
 		{

@@ -25,6 +25,7 @@ public:
 	void drawUnit();
 	void drawAnglePattern();
 	void drawMotorGraph();
+	void drawPatternUnit();
 
 	/* Modules */
 	void drawCode(float v);
@@ -37,6 +38,7 @@ public:
 	system03 *sysPtr;
 	
 	float motor_smooth[3];
+	ofVec3f currentTarg_smooth;
 	
 	deque<float> motorlog[3];
 	
@@ -47,6 +49,8 @@ public:
 	ofQuaternion sphericalLinear(ofQuaternion q1,
 								 ofQuaternion q2,
 								 float t);
+	
+	ofFloatColor themeColor;
 };
 
 #endif /* defined(__system03__Console__) */
