@@ -72,10 +72,10 @@ void Console::view()
 	ofSetColor(255);
 	
 	/* Unit drawing */
-	drawPatternUnit();
+//	drawPatternUnit();
 	drawUnit();
-	drawAnglePattern();
-	drawMotorGraph();
+//	drawAnglePattern();
+//	drawMotorGraph();
 
 	/*
 	ofSetColor(255);
