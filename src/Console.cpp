@@ -58,7 +58,7 @@ void Console::view()
 	/*====== Viewing Datas ========*/
 	
 	buffer.begin();
-	glBlendFuncSeparate(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA,GL_SRC_ALPHA,GL_ONE);
+//	glBlendFuncSeparate(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA,GL_SRC_ALPHA,GL_ONE);
 	
 	ofClear(0, 0, 0, 255);
 	
@@ -204,7 +204,7 @@ void Console::drawUnit()
 			glLineWidth(2.0);
 			unitMesh.drawWireframe();
 			glLineWidth(1.0);
-			ofSetColor(0,175);
+			ofSetColor(0);
 			unitMesh.drawFaces();
 			ofDisableDepthTest();
 		}
