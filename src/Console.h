@@ -13,8 +13,6 @@
 #include "system03.h"
 #include "Pointer.h"
 
-#include "ofxObjLoader.h"
-
 class Console{
 public:
 	void init();
