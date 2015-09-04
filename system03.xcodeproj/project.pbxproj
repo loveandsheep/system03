@@ -29,6 +29,7 @@
 		C62796751B1C534C00487606 /* virtualSteppingMotor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C627966E1B1C534C00487606 /* virtualSteppingMotor.cpp */; };
 		C634B9AB1B902DFA00ABF758 /* Pointer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C634B9A91B902DFA00ABF758 /* Pointer.cpp */; };
 		C634B9B01B93594D00ABF758 /* Console.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C634B9AE1B93594D00ABF758 /* Console.cpp */; };
+		C634B9C51B995C8000ABF758 /* Console_mesh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C634B9C31B995C8000ABF758 /* Console_mesh.cpp */; };
 		C6AF7FD31B5DE9C700FCA3DE /* geomManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6AF7FD11B5DE9C700FCA3DE /* geomManager.cpp */; };
 		C6AF7FD71B5DE9DB00FCA3DE /* baseGeometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6AF7FD51B5DE9DB00FCA3DE /* baseGeometry.cpp */; };
 		C6BD0C281B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C261B3A949000DDAE0D /* ofxKsmrRPiToL6470.cpp */; };
@@ -151,6 +152,7 @@
 		C634B9AA1B902DFA00ABF758 /* Pointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pointer.h; sourceTree = "<group>"; };
 		C634B9AE1B93594D00ABF758 /* Console.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Console.cpp; sourceTree = "<group>"; };
 		C634B9AF1B93594D00ABF758 /* Console.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Console.h; sourceTree = "<group>"; };
+		C634B9C31B995C8000ABF758 /* Console_mesh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Console_mesh.cpp; sourceTree = "<group>"; };
 		C6937888E126BADC8777423B /* OscTypes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = OscTypes.h; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h; sourceTree = SOURCE_ROOT; };
 		C6AF7FD11B5DE9C700FCA3DE /* geomManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = geomManager.cpp; path = geometries/geomManager.cpp; sourceTree = "<group>"; };
 		C6AF7FD21B5DE9C700FCA3DE /* geomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = geomManager.h; path = geometries/geomManager.h; sourceTree = "<group>"; };
@@ -482,6 +484,7 @@
 				C62796521B1C52AF00487606 /* system03.cpp */,
 				C634B9AF1B93594D00ABF758 /* Console.h */,
 				C634B9AE1B93594D00ABF758 /* Console.cpp */,
+				C634B9C31B995C8000ABF758 /* Console_mesh.cpp */,
 				C634B9A81B902DEE00ABF758 /* Pointer */,
 				C6AF7FD41B5DE9CA00FCA3DE /* Geom */,
 				C62796501B1C4DE200487606 /* fontPointer.h */,
@@ -633,6 +636,7 @@
 				62545D179C94265CA1389D4A /* OscOutboundPacketStream.cpp in Sources */,
 				C6AF7FD71B5DE9DB00FCA3DE /* baseGeometry.cpp in Sources */,
 				C4782ECC372420ACE0615B74 /* OscPrintReceivedElements.cpp in Sources */,
+				C634B9C51B995C8000ABF758 /* Console_mesh.cpp in Sources */,
 				0546D1A38E13BD319CC9755B /* OscReceivedElements.cpp in Sources */,
 				C62796511B1C4DE200487606 /* fontPointer.cpp in Sources */,
 				879A251454401BC0B6E4F238 /* OscTypes.cpp in Sources */,

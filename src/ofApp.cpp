@@ -49,12 +49,12 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-	ofBackground(20);
+	ofBackground(0);
 	console.view();
 	
 	camera.begin();
 	{
-		sys03.view();
+//		sys03.view();
 	}
 	camera.end();
 
