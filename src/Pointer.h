@@ -10,6 +10,8 @@
 #define __system03__Pointer__
 
 #include "ofMain.h"
+#define PHASE_POINTING 0
+#define PHASE_IDLE 1
 
 struct gridPattern
 {
@@ -25,10 +27,19 @@ public:
 	void update();
 	void view();
 	
+	void goNextPoint();
+	void goNextPattern(int manual = -1);
+	
 	bool getCurrentLaser();
 	
 	ofVec3f target;
 	bool	laserState;
+	
+	int		phase;
+	int		phaseCount;
+	
+	int		interval_point;
+	int		interval_pattern;
 	
 	int		pattern_id;
 	int		posIndex;

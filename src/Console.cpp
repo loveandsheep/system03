@@ -77,6 +77,7 @@ void Console::view()
 	drawAnglePattern();
 	drawMotorGraph();
 
+	
 	/*
 	ofSetColor(255);
 	string info = "Sys03:Console\n";
@@ -100,8 +101,8 @@ void Console::drawPatternUnit()
 	gridPattern* currentPt = &pointPtr->patterns[pointPtr->pattern_id];
 	for (int i = 0;i < currentPt->pos.size();i++)
 	{
-		colors.push_back(currentPt->pen[i] ? ofFloatColor(1.0,1.0,1.0,1.0) : ofFloatColor(0.0,0.0,0.0,1.0));
-		colors.push_back(currentPt->pen[i] ? ofFloatColor(1.0,1.0,1.0,1.0) : ofFloatColor(0.0,0.0,0.0,1.0));
+		colors.push_back(currentPt->pen[i] ? ofFloatColor(1.0,1.0,1.0,1.0) : ofFloatColor(0.0,0.0,0.0,0.0));
+		colors.push_back(currentPt->pen[i] ? ofFloatColor(1.0,1.0,1.0,1.0) : ofFloatColor(0.0,0.0,0.0,0.0));
 		vertices.push_back(currentPt->pos[i]);
 		vertices.push_back(currentPt->pos[(i+1) % currentPt->pos.size()]);
 	}

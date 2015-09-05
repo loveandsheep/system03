@@ -16,30 +16,46 @@ void Pointer::init()
 	pattern_id = 0;
 	posIndex = 0;
 	loopCounter = 0;
+	
+	interval_point = 60;
+	interval_pattern = 120;
+	phase = PHASE_POINTING;
+	phaseCount = 0;
 }
 
 void Pointer::update()
 {
 	
-	target = patterns[pattern_id].pos[posIndex] * Gridscale;
-	
-	if (ofGetFrameNum() % 50 == 0)
+
+	if (phase == PHASE_POINTING)
 	{
-		laserState = patterns[pattern_id].pen[posIndex];
-		posIndex++;
-	}
-	
-	if (posIndex >= patterns[pattern_id].pos.size())
-	{
-		loopCounter++;
-		posIndex = 0;
-		
-		if (loopCounter > 3)
+		target = patterns[pattern_id].pos[posIndex] * Gridscale;
+		phaseCount++;
+		if (phaseCount >= interval_point)
 		{
-			pattern_id = int(ofRandom(100)) % patterns.size();
-			posIndex = 0;
-			loopCounter = 0;
+			goNextPoint();
+			phaseCount = 0;
 		}
+		if (posIndex >= patterns[pattern_id].pos.size())
+		{
+			laserState = false;
+			phase = PHASE_IDLE;
+			phaseCount = 0;
+		}
+	}
+	if (phase == PHASE_IDLE)
+	{
+		target.set(0, 0);
+		
+		phaseCount++;
+		if (phaseCount >= interval_pattern)
+		{
+			phase = PHASE_POINTING;
+			phaseCount = 0;
+			goNextPattern();
+			
+		}
+
 	}
 }
 
@@ -51,6 +67,25 @@ void Pointer::view()
 bool Pointer::getCurrentLaser()
 {
 	return laserState;
+}
+
+void Pointer::goNextPoint()
+{
+	laserState = patterns[pattern_id].pen[posIndex];
+	posIndex++;
+}
+
+void Pointer::goNextPattern(int manual)
+{
+	loopCounter++;
+	posIndex = 0;
+	
+	if (loopCounter > 3)
+	{
+		pattern_id = int(ofRandom(100)) % patterns.size();
+		posIndex = 0;
+		loopCounter = 0;
+	}
 }
 
 void Pointer::initPatterns()

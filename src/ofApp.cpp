@@ -68,7 +68,7 @@ void ofApp::draw(){
 	console.buffer.draw(ofGetHeight() - 480, 0);
 	ofPopMatrix();
 #endif
-
+	
 }
 
 void ofApp::exit()
@@ -109,5 +109,13 @@ void ofApp::oscManage()
 		if (m.getAddress() == "/system03/signal")
 			sys03.motor.sendSignal((unsigned char)(m.getArgAsInt32(0)),
 								   m.getArgAsInt32(1));
+		
+		if (m.getAddress() == "/system03/interval/point")
+			pointer.interval_point = m.getArgAsInt32(0);
+		
+		if (m.getAddress() == "/system03/interval/pattern")
+			pointer.interval_pattern = m.getArgAsInt32(0);
+		
+
 	}
 }
