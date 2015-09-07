@@ -15,7 +15,7 @@
 
 struct gridPattern
 {
-	vector<bool>	pen;
+	deque<bool>	pen;
 	vector<ofVec2f> pos;
 };
 
@@ -46,7 +46,13 @@ public:
 	int		loopCounter;
 	float	Gridscale;
 	
-	vector<gridPattern> patterns;
+	vector<ofPtr<gridPattern> > patterns;
+	
+	gridPattern tmpPattern;
+	void beginPattern();
+	void addVertex(float x, float y, bool pen);
+	void endPattern();
+	
 };
 
 #endif /* defined(__system03__Pointer__) */

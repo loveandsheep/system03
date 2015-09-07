@@ -76,7 +76,7 @@ void Console::view()
 	drawUnit();
 	drawAnglePattern();
 	drawMotorGraph();
-
+	drawBarGraph();
 	
 	/*
 	ofSetColor(255);
@@ -94,11 +94,54 @@ void Console::view()
 	ofSetColor(255);
 }
 
+void Console::drawBarGraph()
+{
+	ofPushMatrix();
+	ofTranslate(200, 650);
+	ofPtr<gridPattern> currentPat = pointPtr->patterns[pointPtr->pattern_id];
+	float interval = ((pointPtr->phase == PHASE_IDLE) ?
+					  pointPtr->interval_pattern :
+					  pointPtr->interval_point);
+	
+	float rectWidth = 260.0;
+	static float barParam[6] = {0, 0, 0, 0, 0, 0};
+	barParam[0] = sigmoid(pointPtr->phaseCount / interval);
+	barParam[1] += (pointPtr->pattern_id / float(pointPtr->patterns.size()) - barParam[1]) / 3.0;
+	barParam[2] += ((pointPtr->target.x / pointPtr->Gridscale + 1.0) / 2.0 - barParam[2]) / 3.0;
+	barParam[3] += ((pointPtr->target.y / pointPtr->Gridscale + 1.0) / 2.0 - barParam[3]) / 3.0;
+	barParam[4] += (pointPtr->laserState - barParam[4]) / 3.0;
+	barParam[5] += (pointPtr->posIndex / float(currentPat->pos.size()) - barParam[5]) / 3.0;
+	
+	ofNoFill();
+	ofSetColor(100);
+	for (int i = 0;i < 6;i++)
+		ofRect(0, i * 20, rectWidth, 5);
+	ofFill();
+	
+	ofSetColor(255);
+	for (int i = 0;i < 6;i++)
+		ofRect(0, i * 20, barParam[i] * rectWidth, 5);
+	
+	string labels[6];
+	labels[0] = "interval    :" + ofToString(barParam[0]);
+	labels[1] = "patternID   :" + ofToString(barParam[1]);
+	labels[2] = "target-X    :" + ofToString(barParam[2]);
+	labels[3] = "target-Y    :" + ofToString(barParam[3]);
+	labels[4] = "Laser state :" + ofToString(barParam[4]);
+	labels[5] = "Point Index :" + ofToString(barParam[5]);
+	
+	for (int i = 0;i < 6;i++)
+		ofDrawBitmapString(labels[i], 0, i * 20 - 4);
+	
+	ofPopMatrix();
+
+}
+
 void Console::drawPatternUnit()
 {
 	vector<ofFloatColor> colors;
 	vector<ofVec2f> vertices;
-	gridPattern* currentPt = &pointPtr->patterns[pointPtr->pattern_id];
+	ofPtr<gridPattern> currentPt = pointPtr->patterns[pointPtr->pattern_id];
 	for (int i = 0;i < currentPt->pos.size();i++)
 	{
 		colors.push_back(currentPt->pen[i] ? ofFloatColor(1.0,1.0,1.0,1.0) : ofFloatColor(0.0,0.0,0.0,0.0));
@@ -110,9 +153,15 @@ void Console::drawPatternUnit()
 	float sc = 50.0;
 	
 	ofPushMatrix();
-	ofTranslate(366, 700);
+	ofTranslate(100, 700);
+	
+	float gridL = 75.0;
+	ofSetColor(100);
+	ofLine(-gridL, 0.0, gridL, 0.0);
+	ofLine(0.0, -gridL, 0.0, gridL);
+	
 	ofTranslate(currentTarg_smooth * sc);
-	float ll = 1500.0;
+	float ll = 30.0;
 	
 	ofSetColor(themeColor, 128);
 	ofLine(-ll, 0, ll, 0);
@@ -127,7 +176,7 @@ void Console::drawPatternUnit()
 	ofPushMatrix();
 	{
 		ofSetColor(255);
-		ofTranslate(366, 700);
+		ofTranslate(100, 700);
 		
 		glScalef(sc, sc, sc);
 		glEnableClientState(GL_VERTEX_ARRAY);

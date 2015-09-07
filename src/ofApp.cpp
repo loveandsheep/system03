@@ -32,7 +32,6 @@ void ofApp::update(){
 		/*描画シーン*/
 		targetPoint = pointer.target;
 		sys03.setLaser(pointer.getCurrentLaser() && ofGetFrameNum() % 2 == 0);
-		
 	}
 
 	/*ポイントの更新*/

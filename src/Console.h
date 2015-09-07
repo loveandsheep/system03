@@ -26,6 +26,7 @@ public:
 	void drawAnglePattern();
 	void drawMotorGraph();
 	void drawPatternUnit();
+	void drawBarGraph();
 
 	/* Modules */
 	void drawCode(float v);
@@ -51,6 +52,14 @@ public:
 								 float t);
 	
 	ofFloatColor themeColor;
+	
+	float sigmoid(float x,bool flip = false){
+		x = (x - 0.5) * 12.0;
+		float e = 2.71828182846;
+		
+		if (!flip) return 1.0 / (1.0 + pow(e,-x));
+		else	   return 1.0 - (1.0 / (1.0 + pow(e, -x)));
+	}
 };
 
 #endif /* defined(__system03__Console__) */
