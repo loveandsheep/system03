@@ -10,7 +10,7 @@
 
 void Pointer::init()
 {
-	Gridscale = 20.0;
+	Gridscale = 35.0;
 	initPatterns();
 	
 	pattern_id = int(ofRandom(100)) % patterns.size();
