@@ -18,7 +18,7 @@ void Pointer::init()
 	loopCounter = 0;
 	
 	interval_point = 10;
-	interval_pattern = 30;
+	interval_pattern = 100;
 	phase = PHASE_POINTING;
 	phaseCount = 0;
 
@@ -98,8 +98,8 @@ void Pointer::initPatterns()
 	bool en_CircleRandom	= true;
 	bool en_TriangleRot		= true;
 	bool en_LineRot			= true;
-	bool en_circleTriangle	= true;
-	bool en_grid			= true;
+	bool en_circleTriangle	= false;
+	bool en_grid			= false;
 	bool en_grid_45			= true;
 
 	
@@ -161,7 +161,7 @@ void Pointer::initPatterns()
 	if (en_CircleRandom){
 		beginPattern();
 		float seed = ofRandomf();
-		for (int i = 0;i <= 40;i++)
+		for (int i = 0;i <= 100;i++)
 		{
 			float deg = powf(2.0, ofNoise(i * 2.0 * PI + seed * 3941.341)) * 10.0;
 			addVertex(cos(deg),
@@ -179,14 +179,14 @@ void Pointer::initPatterns()
 			deg[i] = ofRandomf() + i * 2;
 			rad[i] = ofRandom(0.5,1.0);
 		}
-		for (int i = 0;i < 5;i++)
+		for (int i = 0;i < 15;i++)
 		{
 			for (int j = 0;j < 3;j++)
 			{
 				addVertex(cos(deg[j]) * rad[j], sin(deg[j]) * rad[j], true);
 			}
 			addVertex(cos(deg[0]) * rad[0], sin(deg[0]) * rad[0], false);
-			for (int j = 0;j < 3;j++) deg[j] += 0.1 * (i + 1);
+			for (int j = 0;j < 3;j++) deg[j] += 0.05 * (i + 1);
 		}
 		endPattern();
 	}
@@ -200,7 +200,7 @@ void Pointer::initPatterns()
 			deg[i] = ofRandomf() + i * 2;
 			rad[i] = ofRandom(0.5,1.0);
 		}
-		for (int i = 0;i < 15;i++)
+		for (int i = 0;i < 30;i++)
 		{
 			addVertex(cos(deg[0]) * rad[0], sin(deg[0]) * rad[0], true);
 			addVertex(cos(deg[1]) * rad[1], sin(deg[1]) * rad[1], false);
