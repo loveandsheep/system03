@@ -17,8 +17,8 @@ void Pointer::init()
 	posIndex = 0;
 	loopCounter = 0;
 	
-	interval_point = 50;
-	interval_pattern = 120;
+	interval_point = 30;
+	interval_pattern = 60;
 	phase = PHASE_POINTING;
 	phaseCount = 0;
 

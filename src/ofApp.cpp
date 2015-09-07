@@ -3,6 +3,8 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	
+	ofSetFrameRate(30);
+	
 	camera.setDistance(300);
 	receiver.setup(54503);
 	targetPoint.set(0, 0, 0);
@@ -31,7 +33,7 @@ void ofApp::update(){
 	{
 		/*描画シーン*/
 		targetPoint = pointer.target;
-		sys03.setLaser(pointer.getCurrentLaser() && ofGetFrameNum() % 2 == 0);
+		sys03.setLaser(pointer.getCurrentLaser());
 	}
 
 	/*ポイントの更新*/

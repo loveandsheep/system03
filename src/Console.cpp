@@ -196,7 +196,7 @@ void Console::drawMotorGraph()
 {
 	for (int i = 0;i < 3;i++)
 	{
-		motor_smooth[i] += ((sysPtr->motor_pos[i] - 12800) / 15.0 - motor_smooth[i]) / 5.0;
+		motor_smooth[i] += ((sysPtr->motor_pos[i] - 12800) / 15.0 - motor_smooth[i]) / 3.0;
 		
 		ofPushMatrix();
 		ofTranslate(80, 80 + i * 70);
