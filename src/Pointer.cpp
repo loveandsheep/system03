@@ -20,7 +20,7 @@ void Pointer::init()
 	posIndex = 0;
 	loopCounter = 0;
 	
-	interval_point =15;
+	interval_point =10;
 	interval_pattern = interval_point;
 	interval_long = 500;
 	
@@ -88,7 +88,7 @@ void Pointer::goNextPattern(int manual)
 	
 	interval_pattern = interval_point;
 	
-	if (loopCounter > 10)
+	if (loopCounter > 20)
 	{
 		loopCounter = 0;
 		interval_pattern = interval_long;
