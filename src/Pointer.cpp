@@ -11,23 +11,25 @@
 void Pointer::init()
 {
 	Gridscale = 35.0;
-	initPatterns();
+	target.set(ofRandomf() * Gridscale,
+			   ofRandomf() * Gridscale);
+
+	genMotorPattern(true);
 	
 	pattern_id = int(ofRandom(100)) % patterns.size();
 	posIndex = 0;
 	loopCounter = 0;
 	
-	interval_point = 10;
-	interval_pattern = 500;
+	interval_point =15;
+	interval_pattern = interval_point;
+	interval_long = 500;
+	
 	phase = PHASE_POINTING;
 	phaseCount = 0;
-
 }
 
 void Pointer::update()
 {
-	
-
 	if (phase == PHASE_POINTING)
 	{
 		target = patterns[pattern_id]->pos[posIndex] * Gridscale;
@@ -46,7 +48,7 @@ void Pointer::update()
 	}
 	if (phase == PHASE_IDLE)
 	{
-		target.set(0, 0);
+//		target.set(0, 0);
 		
 		phaseCount++;
 		if (phaseCount >= interval_pattern)
@@ -54,7 +56,6 @@ void Pointer::update()
 			phase = PHASE_POINTING;
 			phaseCount = 0;
 			goNextPattern();
-			
 		}
 
 	}
@@ -81,19 +82,41 @@ void Pointer::goNextPattern(int manual)
 	loopCounter++;
 	posIndex = 0;
 	
-	if (loopCounter > 0)
+	initPatterns();
+	pattern_id = int(ofRandom(100)) % patterns.size();
+	posIndex = 0;
+	
+	interval_pattern = interval_point;
+	
+	if (loopCounter > 10)
 	{
-		initPatterns();
-		
-		pattern_id = int(ofRandom(100)) % patterns.size();
-		posIndex = 0;
 		loopCounter = 0;
+		interval_pattern = interval_long;
 	}
+}
+
+void Pointer::genMotorPattern(bool randomize)
+{
+	beginPattern();
+	
+	for (int i = 0;i < 3;i++)
+	{
+		float deg = randomize ? ofRandomf() * 6 : (sysPtr->motor_pos[i] - 12800) * 6;
+		addVertex(sin(deg), cos(deg), true);
+	}
+	
+	float deg = randomize ? ofRandomf() * 6 : (sysPtr->motor_pos[0] - 12800) * 6;
+	addVertex(sin(deg), cos(deg), false);
+
+	endPattern();
 }
 
 void Pointer::initPatterns()
 {
 	patterns.clear();
+
+	genMotorPattern();
+	return;
 	
 	bool en_CircleRandom	= true;
 	bool en_TriangleRot		= true;

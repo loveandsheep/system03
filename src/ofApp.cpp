@@ -8,10 +8,12 @@ void ofApp::setup(){
 	camera.setDistance(300);
 	receiver.setup(54503);
 	targetPoint.set(0, 0, 0);
-	pointer.init();
 	
 	sys03.init();
 	sys03.setLaser(true);
+
+	pointer.sysPtr = &sys03;
+	pointer.init();
 	
 	manual = false;
 	

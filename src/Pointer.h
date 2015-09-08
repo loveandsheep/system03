@@ -10,6 +10,8 @@
 #define __system03__Pointer__
 
 #include "ofMain.h"
+#include "system03.h"
+
 #define PHASE_POINTING 0
 #define PHASE_IDLE 1
 
@@ -30,6 +32,8 @@ public:
 	void goNextPoint();
 	void goNextPattern(int manual = -1);
 	
+	void genMotorPattern(bool randomize = false);
+	
 	bool getCurrentLaser();
 	
 	ofVec3f target;
@@ -40,6 +44,7 @@ public:
 	
 	int		interval_point;
 	int		interval_pattern;
+	int		interval_long;
 	
 	int		pattern_id;
 	int		posIndex;
@@ -47,7 +52,8 @@ public:
 	float	Gridscale;
 	
 	vector<ofPtr<gridPattern> > patterns;
-	
+
+	system03* sysPtr;
 	gridPattern tmpPattern;
 	void beginPattern();
 	void addVertex(float x, float y, bool pen);
