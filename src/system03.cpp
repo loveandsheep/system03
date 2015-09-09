@@ -19,6 +19,8 @@ void system03::init()
 #ifndef TARGET_OSX
 	pinMode(LASER_PIN, OUTPUT);
 	pinMode(LIGHT_PIN, OUTPUT);
+	pinMode(DEFAULT_PIN, INPUT);
+	pullUpDnControl(DEFAULT_PIN, PUD_UP);
 	digitalWrite(LASER_PIN, true);
 	digitalWrite(LIGHT_PIN, true);
 #endif
@@ -46,10 +48,19 @@ void system03::init()
 	base_decel = 20;
 	base_speed = 80;
 	maxMove = 45;
+	
+	defaultPinValue = true;
 }
 
 void system03::update(const ofVec3f target)
 {
+	
+#ifndef TARGET_OSX
+	defaultPinValue = digitalRead(DEFAULT_PIN);
+#endif
+
+	if (!defaultPinValue &&defaultPinPrev) goDefault ^= true;
+	defaultPinPrev = defaultPinValue;
 	
 	eyes.update(target);
 	

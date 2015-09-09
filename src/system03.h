@@ -10,9 +10,9 @@
 #include "ofxKsmrRPiToL6470.h"
 #include "ofxKsmrAgileEye.h"
 
-#define LASER_PIN 17
-#define LIGHT_PIN 21
-
+#define LASER_PIN	17
+#define LIGHT_PIN	21
+#define DEFAULT_PIN	26
 
 class system03{
 	
@@ -40,6 +40,9 @@ public:
 	
 	bool				goDefault;
 	bool				laserState;
+	
+	bool				defaultPinPrev;
+	bool				defaultPinValue;
 	
 	static const int center = 12800;
 };
