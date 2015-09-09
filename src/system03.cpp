@@ -60,11 +60,9 @@ void system03::update()
 	
 	if ((!defaultPinValue) && (defaultPinPrev))
 	{
-				goDefault = !goDefault;
+		if (goDefault) goDefault = false;
+		else goDefault = true;
 	}
-	
-	cout << "Previous :" << defaultPinPrev << endl;
-	cout << "default P:" << defaultPinValue << endl;
 	defaultPinPrev = defaultPinValue;
 }
 
