@@ -61,7 +61,7 @@ void system03::update(const ofVec3f target)
 
 	if ((!defaultPinValue) && (defaultPinPrev))
 	{
-		goDefault ^= true;
+//		goDefault ^= true;
 	}
 	
 	cout << "Previous :" << defaultPinPrev << endl;
