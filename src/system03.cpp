@@ -60,9 +60,8 @@ void system03::update()
 	
 	if ((!defaultPinValue) && (defaultPinPrev))
 	{
-		cout << "Toggle" << endl;
-		if (goDefault) goDefault = false;
-		else goDefault = true;
+		cout << "Toggle" << goDefault << endl;
+		goDefault ^= true;
 	}
 	defaultPinPrev = defaultPinValue;
 }

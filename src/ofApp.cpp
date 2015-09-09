@@ -40,6 +40,7 @@ void ofApp::update(){
 
 	/*ポイントの更新*/
 	sys03.update();
+	
 	if (targetPoint != previousPoint)
 	{
 		sys03.motor.enableAllMotor();
