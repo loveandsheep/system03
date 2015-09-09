@@ -59,7 +59,11 @@ void system03::update(const ofVec3f target)
 	defaultPinValue = digitalRead(DEFAULT_PIN);
 #endif
 
-	if (!defaultPinValue &&defaultPinPrev) goDefault ^= true;
+	if (!defaultPinValue &&defaultPinPrev)
+	{
+		goDefault ^= true;
+		cout << "Toggle!" << endl;
+	}
 	defaultPinPrev = defaultPinValue;
 	
 	eyes.update(target);
