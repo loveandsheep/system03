@@ -26,6 +26,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	
+	ofHideCursor();
 	
 	oscManage();
 	pointer.update();

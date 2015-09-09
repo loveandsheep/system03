@@ -57,11 +57,15 @@ void system03::update()
 {
 #ifndef TARGET_OSX
 	defaultPinValue = digitalRead(DEFAULT_PIN);
+#else 
+	defaultPinValue = ofGetKeyPressed('d');
 #endif
 	
 	if ((!defaultPinValue) && (defaultPinPrev))
 	{
 		goDefault ^= true;
+		updateTarg(ofVec3f(ofRandomf()*10,
+						   ofRandomf()*10,0));
 	}
 	defaultPinPrev = defaultPinValue;
 }
