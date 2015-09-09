@@ -21,7 +21,8 @@ public:
 	~system03();
 	
 	void				init();
-	void				update(const ofVec3f target);
+	void				update();
+	void				updateTarg(const ofVec3f target);
 	void				view();
 	
 	void				sendDefaultPos();

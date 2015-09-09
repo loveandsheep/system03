@@ -52,21 +52,24 @@ void system03::init()
 	defaultPinValue = true;
 }
 
-void system03::update(const ofVec3f target)
+void system03::update()
 {
-	
 #ifndef TARGET_OSX
 	defaultPinValue = digitalRead(DEFAULT_PIN);
 #endif
-
+	
 	if ((!defaultPinValue) && (defaultPinPrev))
 	{
-//		goDefault ^= true;
+				goDefault = !goDefault;
 	}
 	
 	cout << "Previous :" << defaultPinPrev << endl;
 	cout << "default P:" << defaultPinValue << endl;
 	defaultPinPrev = defaultPinValue;
+}
+
+void system03::updateTarg(const ofVec3f target)
+{
 	
 	eyes.update(target);
 	

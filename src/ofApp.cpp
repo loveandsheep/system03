@@ -39,11 +39,11 @@ void ofApp::update(){
 	}
 
 	/*ポイントの更新*/
-	//TODO: 更新間隔を誰に握らせるか
+	sys03.update();
 	if (targetPoint != previousPoint)
 	{
 		sys03.motor.enableAllMotor();
-		sys03.update(targetPoint);		
+		sys03.updateTarg(targetPoint);
 	}
 	
 	previousPoint = targetPoint;
