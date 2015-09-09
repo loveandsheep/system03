@@ -40,7 +40,6 @@ void system03::init()
 	motor.sendSignal(RPI_L6470_SIG_STOP_HARD, 0);
 	motor.sendSignal(RPI_L6470_SIG_STEPMODE, 7);
 	
-	goDefault = false;
 	motor_pos.assign(3, 0);
 	motor_pos_prev.assign(3, 0);
 	
@@ -49,7 +48,9 @@ void system03::init()
 	base_speed = 80;
 	maxMove = 45;
 	
+	goDefault = true;
 	defaultPinValue = true;
+	defaultPinPrev	= true;
 }
 
 void system03::update()
@@ -60,7 +61,6 @@ void system03::update()
 	
 	if ((!defaultPinValue) && (defaultPinPrev))
 	{
-		cout << "Toggle" << goDefault << endl;
 		goDefault ^= true;
 	}
 	defaultPinPrev = defaultPinValue;
