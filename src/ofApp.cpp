@@ -15,7 +15,7 @@ void ofApp::setup(){
 	pointer.sysPtr = &sys03;
 	pointer.init();
 	
-	manual = false;
+	manual = true;
 	
 	console.pointPtr = &pointer;
 	console.sysPtr = &sys03;
@@ -59,12 +59,12 @@ void ofApp::draw(){
 	
 	camera.begin();
 	{
-//		sys03.view();
+		sys03.view();
 	}
 	camera.end();
 
 #ifdef TARGET_OSX
-	console.buffer.draw(0, 0);
+//	console.buffer.draw(0, 0);
 #else
 	ofPushMatrix();
 	ofTranslate(0, ofGetHeight());
